@@ -1,7 +1,7 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var focusSize: 50 
+    property var focusSize: 40 
     property var unFocusSize: 30 
     property var focusColor: "#ffffff"
     property var unFocusColor: "#cccccc"
