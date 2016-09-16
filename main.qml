@@ -10,9 +10,9 @@ FocusScope {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
+        focus: true
         height: 100
         backgroundColor: "#000000"
-        focus: true
         currentModel: ["item0", "item1", "item2", "item3", "item4", "item5", "item6", "item7"]
     }
 }
