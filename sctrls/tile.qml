@@ -1,8 +1,7 @@
 import QtQuick 2.4
 
 FocusScope {
-    width: 320
-    height: 170
+    width: 250
     focus: true
     Rectangle {
         focus: true
