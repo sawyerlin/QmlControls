@@ -1,4 +1,5 @@
 import QtQuick 2.4
+import QtGraphicalEffects 1.0
 
 FocusScope {
     property var imageSource: "../images/Image-50.png"
@@ -6,7 +7,16 @@ FocusScope {
     width: 80
     height: 80
     focus: true
+    RectangularGlow {
+        id: effect
+        anchors.fill: rect
+        glowRadius: 20
+        spread: 0.1
+        color: "#282828"
+        cornerRadius: 0
+    }
     Rectangle {
+        id: rect
         anchors.fill: parent
         color: "#414141"
         Image {
