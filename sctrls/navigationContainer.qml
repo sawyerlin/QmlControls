@@ -26,11 +26,13 @@ FocusScope {
                             case Qt.Key_Left:
                             if (currentIndex > 0) {
                                 currentIndex --;
+                                event.accepted = true;
                             }
                             break;
                             case Qt.Key_Right:
                             if (currentIndex < currentModel.length - 1) {
                                 currentIndex ++;
+                                event.accepted = true;
                             }
                             break;
                         }
