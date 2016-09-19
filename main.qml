@@ -1,6 +1,7 @@
 import QtQuick 2.4
 
 import "sctrls"
+import "datas"
 
 FocusScope {
     width: 1280
@@ -8,28 +9,37 @@ FocusScope {
     focus: true
     NavigationContainer {
         id: navigationContainer
+        focus: true
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        height: 100
-        backgroundColor: "#000000"
-        currentModel: ["item0", "item1", "item2", "item3", "item4", "item5", "item6", "item7"]
+        currentModel: NavigationItems {}
+        KeyNavigation.down: tileRowContainer
+    }
+    TileRowContainer {
+        id: tileRowContainer
+        focus: true
+        anchors.top: navigationContainer.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        currentModel: TileRowItems {}
+        KeyNavigation.up: navigationContainer
         KeyNavigation.down: defaultButton
     }
     Rectangle {
-        anchors.top: navigationContainer.bottom
+        id: imageButtons
+        anchors.top: tileRowContainer.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         height: 100
         color: "#aabbcc"
-        KeyNavigation.up: navigationContainer
+        KeyNavigation.up: tileRowContainer
         Row {
             spacing: 50
             anchors.fill: parent
             ImageButton {
                 id: defaultButton
                 anchors.verticalCenter: parent.verticalCenter
-                focus: true
                 KeyNavigation.right: searchButton
             }
             ImageButton {
@@ -44,7 +54,9 @@ FocusScope {
                 anchors.verticalCenter: parent.verticalCenter
                 imageSource: "../images/User-50.png"
                 KeyNavigation.left: searchButton
+                KeyNavigation.down: tileRowContainer
             }
         }
     }
+    
 }

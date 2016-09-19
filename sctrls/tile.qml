@@ -1,27 +1,13 @@
 import QtQuick 2.4
-import QtGraphicalEffects 1.0
 
 FocusScope {
-    property var imageSource: "../images/Image-50.png"
-
-    width: 80
-    height: 80
-    RectangularGlow {
-        id: effect
-        anchors.fill: rect
-        glowRadius: 20
-        spread: 0.1
-        color: "#282828"
-        cornerRadius: 0
-    }
+    width: 320
+    height: 170
+    focus: true
     Rectangle {
-        id: rect
+        focus: true
         anchors.fill: parent
-        color: "#414141"
-        Image {
-            anchors.centerIn: parent
-            source: imageSource
-        }
+        color: "blue"
         transform: Scale {
             origin.x: width / 2
             origin.y: height / 2

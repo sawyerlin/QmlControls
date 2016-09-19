@@ -1,11 +1,10 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var currentModel: undefined 
-    property var itemSpacing: 30
-    height: 40
+    property var currentModel: undefined
+    property var itemSpacing: 10
+    height: 170
     ListView {
-        id: listView
         focus: true
         anchors.fill: parent
         highlightMoveDuration: 100
@@ -13,9 +12,8 @@ FocusScope {
         orientation: ListView.Horizontal
         layoutDirection: Qt.LeftToRight
         model: currentModel
-        delegate: NavigationItem {
+        delegate: Tile {
             height: parent.height
-            itemValue: name 
         }
     }
 }

@@ -1,58 +1,32 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var focusSize: 40 
-    property var unFocusSize: 30 
-    property var focusColor: "#ffffff"
-    property var unFocusColor: "#cccccc"
+    property var focusColor: "#000000"
     property var itemValue: "item"
 
-    property var isFocused: false
-
-    width: childrenRect.width
-    height: focusSize
-    onActiveFocusChanged: {
-        if (activeFocus) {
-            animationMaxSize.start();
-            animationFocusColor.start();
-        } else {
-            animationMinSize.start();
-            animationUnFocusColor.start();
-        }
-    }
+    width: text.width
+    focus: true
     Text {
         id: text
-        color: isFocused ? focusColor : unFocusColor
-        anchors.verticalCenter: parent.verticalCenter
-        font.pixelSize: isFocused ? focusSize : unFocusSize
+        color: focusColor
+        anchors.centerIn: parent
+        font.pixelSize: parent.height * 0.9 
         text: itemValue
-    }
-    PropertyAnimation {
-        id: animationMaxSize
-        target: text
-        properties: "font.pixelSize"
-        to: focusSize
-        duration: 100
-    }
-    PropertyAnimation {
-        id: animationMinSize
-        target: text
-        properties: "font.pixelSize"
-        to: unFocusSize
-        duration: 100
-    }
-    PropertyAnimation {
-        id: animationFocusColor
-        target: text
-        properties: "color"
-        to: focusColor
-        duration: 100
-    }
-    PropertyAnimation {
-        id: animationUnFocusColor
-        target: text
-        properties: "color"
-        to: unFocusColor
-        duration: 100
+        transform: Scale {
+            origin.x: width / 2
+            origin.y: height / 2
+            xScale: activeFocus ? 1.1 : 1
+            yScale: activeFocus ? 1.1 : 1
+            Behavior on xScale {
+                NumberAnimation { 
+                    duration: 100 
+                }
+            }
+            Behavior on yScale {
+                NumberAnimation { 
+                    duration: 100 
+                }
+            }
+        }
     }
 }
