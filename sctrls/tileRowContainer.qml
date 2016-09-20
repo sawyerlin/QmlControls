@@ -3,7 +3,10 @@ import QtQuick 2.4
 FocusScope {
     property var currentModel: undefined
     property var itemSpacing: 10
-    height: 170
+    property var displaySize: 5
+
+    id: self
+    height: self.width / 5.5 / 16 * 9
     ListView {
         focus: true
         anchors.fill: parent
@@ -13,7 +16,8 @@ FocusScope {
         layoutDirection: Qt.LeftToRight
         model: currentModel
         delegate: Tile {
-            height: parent.height
+            width: self.width / 5.5
+            height: width / 16 * 9
         }
     }
 }
