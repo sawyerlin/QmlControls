@@ -2,17 +2,30 @@ import QtQuick 2.4
 
 FocusScope {
     property var currentModel: undefined
+    property var title: "title"
     property var itemSpacing: 10
     property var displaySize: 5
-
     property var realDisplaySize: displaySize + 0.5
+    property var fontSize: 20
+    property var marginTop: 10
 
     id: self
-    height: self.width / realDisplaySize / 16 * 9
+    height: self.width / realDisplaySize / 16 * 9 + fontSize + marginTop
     focus: true
+    Text {
+        id: text
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        text: title
+        font.pixelSize: fontSize
+    }
     ListView {
         focus: true
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: text.bottom
+        anchors.topMargin: 10
         highlightMoveDuration: 100
         spacing: itemSpacing
         orientation: ListView.Horizontal
