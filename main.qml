@@ -26,13 +26,12 @@ FocusScope {
         KeyNavigation.up: navigationContainer
         KeyNavigation.down: defaultButton
     }
-    Rectangle {
+    FocusScope {
         id: imageButtons
         anchors.top: tileRowContainer.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         height: 100
-        color: "#aabbcc"
         KeyNavigation.up: tileRowContainer
         Row {
             spacing: 50
