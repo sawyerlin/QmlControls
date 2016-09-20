@@ -5,8 +5,11 @@ FocusScope {
     property var itemSpacing: 10
     property var displaySize: 5
 
+    property var realDisplaySize: displaySize + 0.5
+
     id: self
-    height: self.width / 5.5 / 16 * 9
+    height: self.width / realDisplaySize / 16 * 9
+    focus: true
     ListView {
         focus: true
         anchors.fill: parent
@@ -16,7 +19,7 @@ FocusScope {
         layoutDirection: Qt.LeftToRight
         model: currentModel
         delegate: Tile {
-            width: self.width / 5.5
+            width: self.width / realDisplaySize
             height: width / 16 * 9
         }
     }
