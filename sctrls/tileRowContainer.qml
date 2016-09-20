@@ -21,6 +21,8 @@ FocusScope {
         delegate: Tile {
             width: self.width / realDisplaySize
             height: width / 16 * 9
+            titleContent: title
+            descContent: desc
         }
     }
 }

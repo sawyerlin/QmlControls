@@ -1,6 +1,10 @@
 import QtQuick 2.4
 
 FocusScope {
+    property var titleContent: "Title"
+    property var descContent: "description"
+    property var background: "../images/Image-50.png"
+
     id: self
     focus: true
     FocusScope {
@@ -10,7 +14,7 @@ FocusScope {
             anchors.fill: parent
             color: "blue"
             Image {
-                source: "../images/Image-50.png"
+                source: background
                 anchors.centerIn: parent
             }
             Rectangle {
@@ -18,22 +22,23 @@ FocusScope {
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
                 height: self.height * 0.3
-                color: "black"
+                color: Qt.rgba(0, 0, 0, 0.7)
                 Text {
-                    id: title
-                    text: "Title"
-                    font.pixelSize: self.height * 0.12
+                    text: titleContent 
+                    font.pixelSize: self.height * 0.1
+                    font.bold: true
                     anchors.top: parent.top
                     anchors.left: parent.left
-                    anchors.topMargin: self.height * 0.03
+                    anchors.topMargin: self.height * 0.05
                     anchors.leftMargin: self.height * 0.08
                     color: "white"
                 }
                 Text {
-                    text: "detail"
-                    font.pixelSize: self.height * 0.08
-                    anchors.top: title.bottom
+                    text: descContent
+                    font.pixelSize: self.height * 0.09
+                    anchors.bottom: parent.bottom
                     anchors.left: parent.left
+                    anchors.bottomMargin: self.height * 0.03
                     anchors.leftMargin: self.height * 0.08
                     color: "white"
                 }
