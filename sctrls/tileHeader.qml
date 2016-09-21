@@ -4,6 +4,7 @@ FocusScope {
     property var fontSize: 20
     property var fontColor: "white"
     property var headerSize: fontSize + 10
+    property var title: "title"
 
     anchors.top: parent.top
     anchors.left: parent.left
@@ -29,8 +30,8 @@ FocusScope {
         transform: Scale {
             origin.x: item.width / 2
             origin.y: item.height / 2
-            xScale: activeFocus ? 1.1 : 1
-            yScale: activeFocus ? 1.1 : 1
+            xScale: activeFocus ? 1.2 : 1
+            yScale: activeFocus ? 1.2 : 1
             Behavior on xScale {
                 NumberAnimation { 
                     duration: 100 
@@ -43,5 +44,4 @@ FocusScope {
             }
         }
     }
-    KeyNavigation.down: list
 }

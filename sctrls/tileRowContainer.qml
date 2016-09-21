@@ -15,6 +15,8 @@ FocusScope {
     TileHeader {
         id: header
         focus: true
+        title: titleContent
+        KeyNavigation.down: list
     }
     ListView {
         id: list
