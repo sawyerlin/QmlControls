@@ -3,6 +3,9 @@ import QtQuick 2.4
 FocusScope {
     property var currentModel: undefined 
     property var itemSpacing: 30
+
+    signal pressed(var datas)
+
     height: 40
     ListView {
         id: listView
@@ -16,6 +19,11 @@ FocusScope {
         delegate: NavigationItem {
             height: parent.height
             itemValue: name 
+            Keys.onPressed: {
+                if (event.key == Qt.Key_Return) {
+                    pressed(datas)
+                }
+            }
         }
     }
 }
