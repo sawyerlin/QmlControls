@@ -19,9 +19,13 @@ FocusScope {
         delegate: NavigationItem {
             height: parent.height
             itemValue: name 
+            fontColor: isDefault ? "white" : "black"
             Keys.onPressed: {
-                if (event.key == Qt.Key_Return) {
+                if (event.key == Qt.Key_Return && !isDefault) {
                     pressed(datas)
+                    currentModel.setProperty(currentModel.defaultIndex, "isDefault", false);
+                    currentModel.setProperty(index, "isDefault", true);
+                    currentModel.defaultIndex = index;
                 }
             }
         }

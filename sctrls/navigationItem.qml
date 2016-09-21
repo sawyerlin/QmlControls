@@ -1,14 +1,14 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var focusColor: "#000000"
+    property var fontColor: "#000000"
     property var itemValue: "item"
 
     width: text.width
     focus: true
     Text {
         id: text
-        color: focusColor
+        color: fontColor 
         anchors.centerIn: parent
         font.pixelSize: parent.height * 0.9 
         text: itemValue
