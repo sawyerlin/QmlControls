@@ -4,9 +4,11 @@ FocusScope {
     property var titleContent: "Title"
     property var descContent: "description"
     property var backgroundContent: "../images/Image-50.png"
+    property var isParentFocused: false
 
     id: self
     focus: true
+    z: activeFocus ? 1 : 0
     FocusScope {
         focus: true
         anchors.fill: parent
@@ -46,6 +48,13 @@ FocusScope {
                 }
             }
         }
+        Rectangle {
+            id: rectCover
+            visible: !isParentFocused
+            color: Qt.rgba(0, 0, 0, 0.5)
+            width: parent.width
+            height: parent.height
+        }
         transform: Scale {
             origin.x: width / 2
             origin.y: height / 2
@@ -54,6 +63,9 @@ FocusScope {
             Behavior on xScale {
                 NumberAnimation { 
                     duration: 100 
+                    onStopped: {
+                        rectCover.visible = isParentFocused
+                    }
                 }
             }
             Behavior on yScale {
