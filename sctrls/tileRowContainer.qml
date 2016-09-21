@@ -6,26 +6,20 @@ FocusScope {
     property var itemSpacing: 10
     property var displaySize: 5
     property var realDisplaySize: displaySize + 0.5
-    property var fontSize: 20
-    property var marginTop: 10
 
     id: self
-    height: self.width / realDisplaySize / 16 * 9 + fontSize + marginTop
+    height: self.width / realDisplaySize / 16 * 9 + 30
     focus: true
-    Text {
-        id: text
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        text: title
-        font.pixelSize: fontSize
+    
+    TileHeader {
+        id: header
+        focus: true
     }
     ListView {
-        focus: true
+        id: list
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: text.bottom
-        anchors.topMargin: 10
+        anchors.top: header.bottom
         highlightMoveDuration: 100
         spacing: itemSpacing
         orientation: ListView.Horizontal

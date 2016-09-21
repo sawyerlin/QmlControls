@@ -2,4 +2,5 @@ NavigationContainer 1.0 navigationContainer.qml
 NavigationItem 1.0 navigationItem.qml
 ImageButton 1.0 imageButton.qml
 Tile 1.0 tile.qml
+TileHeader 1.0 tileHeader.qml
 TileRowContainer 1.0 tileRowContainer.qml
