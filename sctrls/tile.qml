@@ -3,7 +3,7 @@ import QtQuick 2.4
 FocusScope {
     property var titleContent: "Title"
     property var descContent: "description"
-    property var background: "../images/Image-50.png"
+    property var backgroundContent: "../images/Image-50.png"
 
     id: self
     focus: true
@@ -14,7 +14,9 @@ FocusScope {
             anchors.fill: parent
             color: "blue"
             Image {
-                source: background
+                source: backgroundContent
+                anchors.fill: parent
+                fillMode: backgroundContent != "../images/Image-50.png"? Image.Stretch : Image.PreserveAspectFit
                 anchors.centerIn: parent
             }
             Rectangle {

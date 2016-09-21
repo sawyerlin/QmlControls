@@ -2,7 +2,8 @@ import QtQuick 2.4
 
 FocusScope {
     property var currentModel: undefined
-    property var title: "title"
+    property var titleContent: "title is not defined"
+    property var titleColor: "black"
     property var itemSpacing: 10
     property var displaySize: 5
     property var realDisplaySize: displaySize + 0.5
@@ -30,6 +31,7 @@ FocusScope {
             height: width / 16 * 9
             titleContent: title
             descContent: desc
+            backgroundContent: background
         }
     }
 }
