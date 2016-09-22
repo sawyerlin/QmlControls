@@ -5,6 +5,7 @@ FocusScope {
     property var descContent: "description"
     property var backgroundContent: "../images/Image-50.png"
     property var isParentFocused: false
+    property var hasBackgroundImage: backgroundContent != "../images/Image-50.png"
 
     id: self
     focus: true
@@ -14,11 +15,11 @@ FocusScope {
         anchors.fill: parent
         Rectangle {
             anchors.fill: parent
-            color: "blue"
+            color: hasBackgroundImage ? "transparent" : "blue"
             Image {
                 source: backgroundContent
                 anchors.fill: parent
-                fillMode: backgroundContent != "../images/Image-50.png"? Image.Stretch : Image.PreserveAspectFit
+                fillMode: hasBackgroundImage ? Image.Stretch : Image.PreserveAspectFit
                 anchors.centerIn: parent
             }
             Rectangle {
