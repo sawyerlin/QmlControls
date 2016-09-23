@@ -5,7 +5,6 @@ FocusScope {
     property var itemValue: "item"
 
     width: text.width
-    focus: true
     Text {
         id: text
         color: fontColor 

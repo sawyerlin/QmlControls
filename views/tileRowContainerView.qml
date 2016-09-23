@@ -1,21 +1,21 @@
 import QtQuick 2.4
 
-import "sctrls"
-import "datas"
+import "../datas"
+import "../lib"
+import "../sctrls"
+import "tileRowContainer"
 
-FocusScope {
-    width: 1280
-    height: 720
-    focus: true
+PageView {
     FocusScope {
         id: header
+        focus: true
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        height: 100
-        focus: true
+        height: 50
+        KeyNavigation.down: navigation
         Rectangle {
-            color: "#555555"
+            color: "#666666"
             anchors.fill: parent
             NavigationContainer {
                 focus: true
@@ -23,11 +23,9 @@ FocusScope {
                 anchors.right: parent.right
                 anchors.leftMargin: 50
                 anchors.verticalCenter: parent.verticalCenter
-                currentModel: NavigationItems {}
-                onPressed: navigation.change(datas.type)
+                currentModel: SubNavigationItems {}
             }
         }
-        KeyNavigation.down: navigation
     }
     Navigation {
         id: navigation

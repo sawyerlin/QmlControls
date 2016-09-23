@@ -3,9 +3,11 @@ import QtQuick 2.4
 FocusScope {
     property var currentModel: undefined 
     property var itemSpacing: 30
+    property var currentIndex: 1
 
     signal pressed(var datas)
 
+    id:self
     height: 40
     ListView {
         id: listView
@@ -14,20 +16,21 @@ FocusScope {
         highlightMoveDuration: 100
         spacing: itemSpacing
         orientation: ListView.Horizontal
-        layoutDirection: Qt.LeftToRight
         model: currentModel
         delegate: NavigationItem {
             height: parent.height
             itemValue: name 
             fontColor: isDefault ? "white" : "black"
+            focus: isDefault
             Keys.onPressed: {
                 if (event.key == Qt.Key_Return && !isDefault) {
                     pressed(datas)
-                    currentModel.setProperty(currentModel.defaultIndex, "isDefault", false);
+                    currentModel.setProperty(self.currentIndex, "isDefault", false);
                     currentModel.setProperty(index, "isDefault", true);
-                    currentModel.defaultIndex = index;
+                    self.currentIndex = index;
                 }
             }
         }
+        Component.onCompleted: listView.currentIndex = self.currentIndex
     }
 }

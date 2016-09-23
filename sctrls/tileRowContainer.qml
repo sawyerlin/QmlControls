@@ -11,7 +11,6 @@ FocusScope {
     id: self
     height: self.width / realDisplaySize / 16 * 9 + 30
     focus: true
-
     TileHeader {
         id: header
         focus: true

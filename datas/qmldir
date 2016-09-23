@@ -1,2 +1,3 @@
 TileRowItems 1.0 tileRowItems.qml
 NavigationItems 1.0 navigationItems.qml
+SubNavigationItems 1.0 subNavigationItems.qml

@@ -6,6 +6,7 @@ FocusScope {
     property var backgroundContent: "../images/Image-50.png"
     property var isParentFocused: false
     property var hasBackgroundImage: backgroundContent != "../images/Image-50.png"
+    property var showSubBand: true
 
     id: self
     focus: true
@@ -27,6 +28,7 @@ FocusScope {
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
                 height: self.height * 0.3
+                visible: showSubBand
                 color: Qt.rgba(0, 0, 0, 0.7)
                 Text {
                     text: titleContent 

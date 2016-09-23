@@ -6,7 +6,8 @@ ListModel {
         for (var i = 0; i < 10; i ++) {
             self.append({
                 "title": "item " + i,
-                "desc": "item " + i + " desc"
+                "desc": "item " + i + " desc",
+                "background": "../images/Image-50.png"
             });
         }
     }
