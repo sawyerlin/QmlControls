@@ -3,16 +3,18 @@ import QtQuick 2.4
 Rectangle {
     property var avatar: "../images/User-50.png"
     property var animationDuration: 100
-    property var sideSize: 153 * wScale
+    property var sideSize: {
+        console.log(wScale);
+        return 153 * wScale;
+    }
     property var sideFocusSize: 182 * wScale
     property var focusScale: sideFocusSize / sideSize
 
     id: self
     width: sideSize
     height: sideSize
-    color: "black"
     Image {
-        anchors.centerIn: parent
+        anchors.fill: parent
         source: self.avatar
     }
     transform: Scale {

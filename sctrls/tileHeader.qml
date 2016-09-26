@@ -14,7 +14,7 @@ FocusScope {
         focus: true
         id: item
         anchors.verticalCenter: parent.verticalCenter
-        Text {
+        StyleText {
             id: text
             anchors.verticalCenter: parent.verticalCenter
             text: title

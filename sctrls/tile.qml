@@ -30,7 +30,7 @@ FocusScope {
                 height: self.height * 0.3
                 visible: showSubBand
                 color: Qt.rgba(0, 0, 0, 0.7)
-                Text {
+                StyleText {
                     text: titleContent 
                     font.pixelSize: self.height * 0.1
                     font.bold: true
@@ -40,7 +40,7 @@ FocusScope {
                     anchors.leftMargin: self.height * 0.08
                     color: "white"
                 }
-                Text {
+                StyleText {
                     text: descContent
                     font.pixelSize: self.height * 0.09
                     anchors.bottom: parent.bottom

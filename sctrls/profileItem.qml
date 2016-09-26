@@ -13,7 +13,7 @@ FocusScope {
         anchors.horizontalCenter: parent.horizontalCenter
         avatar: self.avatar
     }
-    Text {
+    StyleText {
         anchors.top: avatarView.bottom
         anchors.topMargin: 30 * hScale
         anchors.horizontalCenter: parent.horizontalCenter
