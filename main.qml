@@ -4,15 +4,20 @@ import "sctrls"
 import "datas"
 
 FocusScope {
+    property var wScale: 1280 / 1920 
+    property var hScale: 720 / 1080
+    id: main
     width: 1280
     height: 720
+    onWidthChanged: wScale = main.width / 1920;
+    onHeightChanged: hScale = main.height / 1080
     focus: true
     FocusScope {
         id: header
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        height: 100
+        height: 200 * hScale
         focus: true
         Rectangle {
             color: "#555555"

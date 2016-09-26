@@ -3,12 +3,12 @@ import QtQuick 2.4
 FocusScope {
     property var currentModel: undefined 
     property var itemSpacing: 30
-    property var currentIndex: 1
+    property var currentIndex: 0
 
     signal pressed(var datas)
 
-    id:self
-    height: 40
+    id: self
+    height: 170 * hScale
     ListView {
         id: listView
         focus: true
@@ -31,6 +31,14 @@ FocusScope {
                 }
             }
         }
-        Component.onCompleted: listView.currentIndex = self.currentIndex
+        Component.onCompleted: {
+            for (var index = 0; index < currentModel.count; index ++) {
+                if (currentModel.get(index).isDefault) {
+                    self.currentIndex = index;
+                    break;
+                }
+            }
+            listView.currentIndex = self.currentIndex
+        }
     }
 }

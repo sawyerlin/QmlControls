@@ -4,6 +4,10 @@ import "../lib"
 import "../sctrls"
 
 PageView {
-    Rectangle {
+    Text {
+        anchors.centerIn: parent
+        text: "empty view"
+        color: "white"
+        font.pixelSize: 50
     }
 }

@@ -12,9 +12,16 @@ ListModel {
         });
         self.append({
             name: "TileRowContainer",
-            isDefault: true,
             datas: {
                 type: "tileRowContainerView",
+                url: ""
+            }
+        });
+        self.append({
+            name: "ProfileSelector",
+            isDefault: true,
+            datas: {
+                type: "profileSelectorView",
                 url: ""
             }
         });

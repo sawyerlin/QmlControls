@@ -7,7 +7,7 @@ import "views"
 
 StackView {
     id: navigation
-    initialItem: tileRowContainerView
+    initialItem: profileSelectorView 
     width: 1920
     height: 1080
     focus: true
@@ -24,18 +24,28 @@ StackView {
         }
     }
     Component {
+        id: profileSelectorView
+        ProfileSelectorView {
+            name: "profileSelectorView"
+        }
+    }
+    Component {
         id: emptyView
         EmptyView {
             name: "emptyView"
         }
     }
     function change(name) {
+        console.log(name);
         switch(name) {
             case "tileRowContainerView":
             navigation.push(tileRowContainerView, true);
             break;
             case "imageButtonView":
             navigation.push(imageButtonView, true);
+            break;
+            case "profileSelectorView":
+            navigation.push(profileSelectorView, true);
             break;
             default: 
             navigation.push(emptyView, true);

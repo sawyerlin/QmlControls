@@ -4,3 +4,5 @@ ImageButton 1.0 imageButton.qml
 Tile 1.0 tile.qml
 TileHeader 1.0 tileHeader.qml
 TileRowContainer 1.0 tileRowContainer.qml
+Avatar 1.0 avatar.qml
+ProfileItem 1.0 profileItem.qml

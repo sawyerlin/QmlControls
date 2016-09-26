@@ -3,13 +3,14 @@ import QtQuick 2.4
 FocusScope {
     property var fontColor: "#000000"
     property var itemValue: "item"
+    property var textSize: 53 * wScale
 
     width: text.width
     Text {
         id: text
         color: fontColor 
         anchors.centerIn: parent
-        font.pixelSize: parent.height * 0.9 
+        font.pixelSize: textSize
         text: itemValue
         transform: Scale {
             origin.x: width / 2
@@ -22,7 +23,7 @@ FocusScope {
                 }
             }
             Behavior on yScale {
-                NumberAnimation { 
+                NumberAnimation {
                     duration: 100 
                 }
             }
