@@ -2,10 +2,11 @@ import QtQuick 2.4
 
 FocusScope {
     property var fontSize: 20
-    property var fontColor: "white"
     property var headerSize: fontSize + 10
-    property var title: "title"
+    property var title: undefined
+    property var color: undefined
 
+    id: self
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: parent.right
@@ -17,11 +18,12 @@ FocusScope {
         StyleText {
             id: text
             anchors.verticalCenter: parent.verticalCenter
-            text: title
-            color: fontColor
+            text: self.title || "title not defined"
+            color: self.color || "white"
             font.pixelSize: fontSize
         }
         Image {
+            visible: self.activeFocus
             anchors.left: text.right
             anchors.leftMargin: 10
             anchors.verticalCenter: text.verticalCenter

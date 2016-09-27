@@ -1,11 +1,12 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var titleContent: "Title"
-    property var descContent: "description"
-    property var backgroundContent: "../images/Image-50.png"
+    property var title: undefined
+    property var desc: undefined
+    property var background: undefined
+    property var progressValue: undefined
     property var isParentFocused: false
-    property var hasBackgroundImage: backgroundContent != "../images/Image-50.png"
+    property var hasBackgroundImage: background != undefined
     property var showSubBand: true
 
     id: self
@@ -18,7 +19,7 @@ FocusScope {
             anchors.fill: parent
             color: hasBackgroundImage ? "transparent" : "blue"
             Image {
-                source: backgroundContent
+                source: background || "../images/Image-50.png"
                 anchors.fill: parent
                 fillMode: hasBackgroundImage ? Image.Stretch : Image.PreserveAspectFit
                 anchors.centerIn: parent
@@ -26,12 +27,11 @@ FocusScope {
             Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.bottom: parent.bottom
                 height: self.height * 0.3
                 visible: showSubBand
                 color: Qt.rgba(0, 0, 0, 0.7)
                 StyleText {
-                    text: titleContent 
+                    text: self.title || "title undefined"
                     font.pixelSize: self.height * 0.1
                     font.bold: true
                     anchors.top: parent.top
@@ -41,7 +41,7 @@ FocusScope {
                     color: "white"
                 }
                 StyleText {
-                    text: descContent
+                    text: desc || "desc undefined"
                     font.pixelSize: self.height * 0.09
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
@@ -49,6 +49,15 @@ FocusScope {
                     anchors.leftMargin: self.height * 0.08
                     color: "white"
                 }
+                anchors.bottom: progressBar.top
+            }
+            CustomProgressBar {
+                id: progressBar
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                value: progressValue
+                visibleHeight: 5
             }
         }
         Rectangle {
