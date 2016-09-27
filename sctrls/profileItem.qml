@@ -1,17 +1,20 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var avatar: "../images/User-50.png"
-    property var name: "Nouveau Utilisateur"
+    property var profile: {
+        id: -1
+        name: "Nouveau Utilisateur"
+        avatar: "../images/User-50.png"
+        isChild: false
+    }
 
-    id: self
     width: 200 * wScale
     height: 1 * hScale
     Avatar {
         id: avatarView
         focus: true
         anchors.horizontalCenter: parent.horizontalCenter
-        avatar: self.avatar
+        avatar: profile.avatar
     }
     StyleText {
         anchors.top: avatarView.bottom
@@ -19,7 +22,7 @@ FocusScope {
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 30 * wScale
         color: "white"
-        text: self.name
+        text: profile.name
         font.bold: parent.activeFocus
     }
 }

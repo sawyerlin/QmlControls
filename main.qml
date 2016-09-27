@@ -28,7 +28,7 @@ FocusScope {
                 anchors.right: parent.right
                 anchors.leftMargin: 50
                 anchors.verticalCenter: parent.verticalCenter
-                currentModel: NavigationItems {}
+                model: NavigationItems {}
                 onPressed: navigation.change(datas.type)
             }
         }
