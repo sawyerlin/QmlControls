@@ -3,37 +3,56 @@ import QtQuick 2.4
 FocusScope {
     property var model: undefined
     property var itemSpacing: 10
-    property var displaySize: 5
-    property var realDisplaySize: displaySize + 0.5
+    property var itemHeight: 192* hScale
 
     id: self
-    height: self.width / realDisplaySize / 16 * 9 + 30
     focus: true
+    height: (itemHeight + header.height) * hScale
     TileHeader {
         id: header
         focus: true
-        title: model.title
-        color: model.color || "white"
+        title: self.model.title
+        color: self.model.color || "white"
         KeyNavigation.down: list
     }
     ListView {
         id: list
+        model: self.model
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: header.bottom
-        highlightMoveDuration: 100
-        spacing: itemSpacing
+        spacing: itemSpacing * wScale
         orientation: ListView.Horizontal
         layoutDirection: Qt.LeftToRight
-        model: self.model
+        highlightMoveDuration: 100
+        displayMarginEnd: 50
         delegate: Tile {
-            width: self.width / realDisplaySize
-            height: width / 16 * 9
+            width: datas.width * wScale
+            height: datas.height * hScale
             title: datas.title
             desc: datas.desc
+            widthFocus: datas.widthFocus * wScale
+            heightFocus: datas.heightFocus * hScale
             background: datas.background
             progressValue: datas.progressValue
             isParentFocused: self.activeFocus
+            Component.onCompleted: {
+                if (index == 0) {
+                    self.itemHeight = datas.height;
+                }
+            }
+        }
+    }
+    Item {
+        visible: self.model.count == 0
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: header.bottom
+        height: itemHeight * hScale
+        Text {
+            color: "white"
+            font.pixelSize: 25 * hScale
+            text: self.model.emptyMessage || ""
         }
     }
 }

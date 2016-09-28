@@ -4,7 +4,7 @@ import "../lib"
 import "../sctrls"
 
 PageView {
-    StyleText {
+    Text {
         anchors.centerIn: parent
         text: "empty view"
         color: "white"

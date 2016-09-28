@@ -5,6 +5,8 @@ FocusScope {
     property var desc: undefined
     property var background: undefined
     property var progressValue: undefined
+    property var widthFocus: 434 * wScale
+    property var heightFocus: 270 * hScale
     property var isParentFocused: false
     property var hasBackgroundImage: background != undefined
     property var showSubBand: true
@@ -30,7 +32,7 @@ FocusScope {
                 height: self.height * 0.3
                 visible: showSubBand
                 color: Qt.rgba(0, 0, 0, 0.7)
-                StyleText {
+                Text {
                     text: self.title || "title undefined"
                     font.pixelSize: self.height * 0.1
                     font.bold: true
@@ -40,7 +42,7 @@ FocusScope {
                     anchors.leftMargin: self.height * 0.08
                     color: "white"
                 }
-                StyleText {
+                Text {
                     text: desc || "desc undefined"
                     font.pixelSize: self.height * 0.09
                     anchors.bottom: parent.bottom
@@ -70,8 +72,8 @@ FocusScope {
         transform: Scale {
             origin.x: width / 2
             origin.y: height / 2
-            xScale: activeFocus ? 1.1 : 1
-            yScale: activeFocus ? 1.1 : 1
+            xScale: activeFocus ? widthFocus / width : 1
+            yScale: activeFocus ? heightFocus / height : 1
             Behavior on xScale {
                 NumberAnimation { 
                     duration: 100 

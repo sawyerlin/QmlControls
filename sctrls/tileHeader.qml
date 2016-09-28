@@ -1,8 +1,9 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var fontSize: 20
-    property var headerSize: fontSize + 10
+    property var fontSize: 30 * hScale
+    property var fontFocusSize: 39 * hScale
+    property var fontScale: fontFocusSize / fontSize
     property var title: undefined
     property var color: undefined
 
@@ -10,12 +11,12 @@ FocusScope {
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: parent.right
-    height: headerSize
+    height: fontSize + 50 * hScale
     Item {
         focus: true
         id: item
         anchors.verticalCenter: parent.verticalCenter
-        StyleText {
+        Text {
             id: text
             anchors.verticalCenter: parent.verticalCenter
             text: self.title || "title not defined"
@@ -32,8 +33,8 @@ FocusScope {
         transform: Scale {
             origin.x: item.width / 2
             origin.y: item.height / 2
-            xScale: activeFocus ? 1.2 : 1
-            yScale: activeFocus ? 1.2 : 1
+            xScale: activeFocus ? fontScale : 1
+            yScale: activeFocus ? fontScale : 1
             Behavior on xScale {
                 NumberAnimation { 
                     duration: 100 

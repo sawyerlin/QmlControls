@@ -19,7 +19,7 @@ FocusScope {
         anchors.fill: parent
         color: "#414141"
         Image {
-            anchors.centerIn: parent
+            anchors.fill: parent
             source: imageSource
         }
         transform: Scale {

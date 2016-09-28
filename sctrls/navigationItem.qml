@@ -6,7 +6,7 @@ FocusScope {
     property var textSize: 53 * wScale
 
     width: text.width
-    StyleText {
+    Text {
         id: text
         color: fontColor 
         anchors.centerIn: parent
