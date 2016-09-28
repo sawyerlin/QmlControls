@@ -3,7 +3,9 @@ import QtQuick 2.4
 FocusScope {
     property var model: undefined
     property var itemSpacing: 10
-    property var itemHeight: 192* hScale
+    property var itemHeight: 192 * hScale
+
+    signal moreClicked(var sourceUrl)
 
     id: self
     focus: true
@@ -14,6 +16,11 @@ FocusScope {
         title: self.model.title
         color: self.model.color || "white"
         KeyNavigation.down: list
+        Keys.onPressed: {
+            if (event.key == Qt.Key_Return) {
+                moreClicked(self.model.sourceUrl);
+            }
+        }
     }
     ListView {
         id: list
