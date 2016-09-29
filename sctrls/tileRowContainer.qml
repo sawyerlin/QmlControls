@@ -3,13 +3,14 @@ import QtQuick 2.4
 FocusScope {
     property var model: undefined
     property var itemSpacing: 10
+    property var marginBottom: 20
     property var itemHeight: 192 * hScale
 
     signal moreClicked(var sourceUrl)
 
     id: self
     focus: true
-    height: (itemHeight + header.height) * hScale
+    height: itemHeight + header.height + marginBottom * hScale
     TileHeader {
         id: header
         focus: true
@@ -45,11 +46,12 @@ FocusScope {
             isParentFocused: self.activeFocus
             Component.onCompleted: {
                 if (index == 0) {
-                    self.itemHeight = datas.height;
+                    self.itemHeight = datas.height * hScale;
                 }
             }
         }
     }
+    
     Item {
         visible: self.model.count == 0
         anchors.left: parent.left

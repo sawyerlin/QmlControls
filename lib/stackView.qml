@@ -25,21 +25,26 @@ FocusScope {
     }
     function pop(item) {
         if (!item) {
-            self.currentItem = self.items.pop();
+            if (self.items.length > 0) {
+                self.currentItem.destroy();
+                self.currentItem = self.items.pop();
+                self.currentItem.focus = true;
+            }
         } else {
             for(var i = 1; i < self.items.length; i++) {
+                self.currentItem.destroy();
                 self.currentItem = self.items.pop();
                 if (item.id === self.items[index].id) {
                     break;
                 }
             }
+            self.currentItem.focus = true;
         }
     }
     function push(item, replace) {
         replace = replace || false;
         if (item) {
             if (replace) {
-                console.log(self.currentItem);
                 self.currentItem.destroy();
             } else {
                 self.items.push(self.currentItem);

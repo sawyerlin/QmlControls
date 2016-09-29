@@ -38,8 +38,11 @@ FocusScope {
                     font.bold: true
                     anchors.top: parent.top
                     anchors.left: parent.left
+                    anchors.right: parent.right
                     anchors.topMargin: self.height * 0.05
                     anchors.leftMargin: self.height * 0.08
+                    anchors.rightMargin: self.height * 0.08
+                    elide: Text.ElideRight
                     color: "white"
                 }
                 Text {
@@ -49,6 +52,9 @@ FocusScope {
                     anchors.left: parent.left
                     anchors.bottomMargin: self.height * 0.03
                     anchors.leftMargin: self.height * 0.08
+                    anchors.right: parent.right
+                    anchors.rightMargin: self.height * 0.08
+                    elide: Text.ElideRight
                     color: "white"
                 }
                 anchors.bottom: progressBar.top
