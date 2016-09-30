@@ -24,8 +24,18 @@ FocusScope {
             height: self.cellHeight
             Tile {
                 focus: true
-                width: datas.width * wScale
-                height: datas.height * hScale
+                width: {
+                    if (index == 0) {
+                        self.itemWidth = datas.width * wScale;
+                    }
+                    return datas.width * wScale;
+                }
+                height: {
+                    if (index == 0) {
+                        self.itemHeight = datas.height * hScale;
+                    }
+                    return datas.height * hScale;
+                }
                 title: datas.title
                 anchors.right: parent.right
                 anchors.rightMargin: (index % columnSize + 1) * (cellWidth - itemWidth) - index % columnSize * widthSpacing 
@@ -36,12 +46,6 @@ FocusScope {
                 background: datas.background
                 progressValue: datas.progressValue
                 isParentFocused: self.activeFocus
-                Component.onCompleted: {
-                    if (index == 0) {
-                        self.itemHeight = datas.height * hScale;
-                        self.itemWidth = datas.width * wScale;
-                    }
-                }
             }
         }
     }

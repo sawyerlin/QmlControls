@@ -36,7 +36,12 @@ FocusScope {
         displayMarginEnd: 50
         delegate: Tile {
             width: datas.width * wScale
-            height: datas.height * hScale
+            height: {
+                if (index == 0) {
+                    self.itemHeight = datas.height * hScale;
+                }
+                return datas.height * hScale;
+            }
             title: datas.title
             desc: datas.desc
             widthFocus: datas.widthFocus * wScale
@@ -44,11 +49,6 @@ FocusScope {
             background: datas.background
             progressValue: datas.progressValue
             isParentFocused: self.activeFocus
-            Component.onCompleted: {
-                if (index == 0) {
-                    self.itemHeight = datas.height * hScale;
-                }
-            }
         }
     }
     
