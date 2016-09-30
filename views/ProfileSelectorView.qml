@@ -20,8 +20,7 @@ PageView {
             layoutDirection: Qt.LeftToRight
             model: ProfileSelectorModel {}
             delegate: ProfileItem {
-                name: datas.name
-                avatar: datas.avatar
+                profile: datas
             }
         }
     }

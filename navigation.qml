@@ -39,16 +39,16 @@ StackView {
         console.log(name);
         switch(name) {
             case "tileRowContainerView":
-            navigation.push(tileRowContainerView, true);
+            navigation.push(tileRowContainerView, {}, true);
             break;
             case "imageButtonView":
-            navigation.push(imageButtonView, true);
+            navigation.push(imageButtonView, {}, true);
             break;
             case "profileSelectorView":
-            navigation.push(profileSelectorView, true);
+            navigation.push(profileSelectorView, {}, true);
             break;
             default: 
-            navigation.push(emptyView, true);
+            navigation.push(emptyView, {}, true);
             break;
         }
     }
