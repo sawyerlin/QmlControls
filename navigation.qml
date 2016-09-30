@@ -20,7 +20,7 @@ StackView {
     Component {
         id: tileRowContainerView
         TileRowContainerView {
-            name: "tileRowContainer"
+            name: "tileListView"
         }
     }
     Component {

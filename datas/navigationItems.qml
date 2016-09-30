@@ -11,7 +11,7 @@ ListModel {
             }
         });
         self.append({
-            name: "TileRowContainer",
+            name: "TileListView",
             datas: {
                 type: "tileRowContainerView",
                 url: ""

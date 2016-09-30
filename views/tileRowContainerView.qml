@@ -5,7 +5,7 @@ import "../sctrls"
 import "../datas"
 
 PageView {
-    TileRowContainer {
+    TileListView {
         id: container
         anchors.left: parent.left
         anchors.right: parent.right
