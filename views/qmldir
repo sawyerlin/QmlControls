@@ -2,3 +2,4 @@ EmptyView 1.0 EmptyView.qml
 ImageButtonView 1.0 ImageButtonView.qml
 ProfileSelectorView 1.0 ProfileSelectorView.qml
 TileRowContainerView 1.0 TileRowContainerView.qml
+TileGridContainerView 1.0 TileGridContainerView.qml

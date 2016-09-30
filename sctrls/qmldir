@@ -7,3 +7,4 @@ ProfileItem 1.0 ProfileItem.qml
 Tile 1.0 Tile.qml
 TileHeader 1.0 TileHeader.qml
 TileListView 1.0 TileListView.qml
+TileGridView 1.0 TileGridView.qml

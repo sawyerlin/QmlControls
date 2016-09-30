@@ -8,7 +8,8 @@ FocusScope {
     property var widthFocus: 434 * wScale
     property var heightFocus: 270 * hScale
     property var isParentFocused: false
-    property var hasBackgroundImage: background != undefined
+    property var backgroundDefaultImage: "../images/Image-50.png"
+    property var hasBackgroundImage: background != undefined && background != backgroundDefaultImage
     property var showSubBand: true
 
     id: self
@@ -21,7 +22,7 @@ FocusScope {
             anchors.fill: parent
             color: hasBackgroundImage ? "transparent" : "blue"
             Image {
-                source: background || "../images/Image-50.png"
+                source: background || backgroundDefaultImage
                 anchors.fill: parent
                 fillMode: hasBackgroundImage ? Image.Stretch : Image.PreserveAspectFit
                 anchors.centerIn: parent

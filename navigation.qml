@@ -7,7 +7,6 @@ import "views"
 
 StackView {
     id: navigation
-    initialItem: profileSelectorView 
     width: 1920
     height: 1080
     focus: true
@@ -21,6 +20,12 @@ StackView {
         id: tileRowContainerView
         TileRowContainerView {
             name: "tileListView"
+        }
+    }
+    Component {
+        id: tileGridContainerView
+        TileGridContainerView {
+            name: "tileGridView"
         }
     }
     Component {
@@ -40,6 +45,9 @@ StackView {
         switch(name) {
             case "tileRowContainerView":
             navigation.push(tileRowContainerView, {}, true);
+            break;
+            case "tileGridContainerView":
+            navigation.push(tileGridContainerView, {}, true);
             break;
             case "imageButtonView":
             navigation.push(imageButtonView, {}, true);

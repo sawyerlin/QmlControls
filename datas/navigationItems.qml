@@ -19,7 +19,6 @@ ListModel {
         });
         self.append({
             name: "ProfileSelector",
-            isDefault: true,
             datas: {
                 type: "profileSelectorView",
                 url: ""
@@ -27,8 +26,9 @@ ListModel {
         });
         self.append({
             name: "TileGridContainer",
+            isDefault: true,
             datas: {
-                type: "tileGridContainer",
+                type: "tileGridContainerView",
                 url: ""
             }
         });
