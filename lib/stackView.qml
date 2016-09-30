@@ -29,6 +29,7 @@ FocusScope {
                 self.currentItem.destroy();
                 self.currentItem = self.items.pop();
                 self.currentItem.focus = true;
+                self.currentItem.visible = true;
             }
         } else {
             for(var i = 1; i < self.items.length; i++) {
@@ -39,6 +40,7 @@ FocusScope {
                 }
             }
             self.currentItem.focus = true;
+            self.currentItem.visible = true;
         }
     }
     function push(item, params, replace) {
@@ -49,6 +51,7 @@ FocusScope {
                     self.currentItem.destroy();
                 }
             } else {
+                self.currentItem.visible = false;
                 self.items.push(self.currentItem);
             }
             self.currentItem = item.createObject(self, params);
