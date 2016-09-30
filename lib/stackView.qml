@@ -41,15 +41,17 @@ FocusScope {
             self.currentItem.focus = true;
         }
     }
-    function push(item, replace) {
+    function push(item, params, replace) {
         replace = replace || false;
         if (item) {
             if (replace) {
-                self.currentItem.destroy();
+                if (self.currentItem) {
+                    self.currentItem.destroy();
+                }
             } else {
                 self.items.push(self.currentItem);
             }
-            self.currentItem = item.createObject(self, {});
+            self.currentItem = item.createObject(self, params);
             self.currentItem.focus = true;
         }
     }
