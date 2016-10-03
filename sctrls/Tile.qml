@@ -71,7 +71,7 @@ FocusScope {
         }
         Rectangle {
             id: rectCover
-            visible: !isParentFocused
+            visible: !isParentFocused && !self.activeFocus
             color: Qt.rgba(0, 0, 0, 0.5)
             width: parent.width
             height: parent.height
@@ -85,7 +85,7 @@ FocusScope {
                 NumberAnimation { 
                     duration: 100 
                     onStopped: {
-                        rectCover.visible = isParentFocused
+                        rectCover.visible = isParentFocused || self.activeFocus
                     }
                 }
             }

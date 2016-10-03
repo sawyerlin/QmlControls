@@ -22,8 +22,8 @@ FocusScope {
             itemValue: name 
             fontColor: isDefault ? "white" : "black"
             focus: isDefault
-            Keys.onPressed: {
-                if (event.key == Qt.Key_Return && !isDefault) {
+            Keys.onReturnPressed: {
+                if (!isDefault) {
                     pressed(datas)
                     self.model.setProperty(self.currentIndex, "isDefault", false);
                     self.model.setProperty(index, "isDefault", true);

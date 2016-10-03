@@ -40,7 +40,7 @@ GridView {
             heightFocus: datas.heightFocus * hScale
             background: datas.background
             progressValue: datas.progressValue
-            isParentFocused: self.activeFocus
+            isParentFocused: false
         }
     }
 }
