@@ -44,9 +44,7 @@ FocusScope {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
     }
-    Rectangle {
+    CustomDialog {
         id: dialog
-        anchors.fill: parent
-        z: -1
     }
 }

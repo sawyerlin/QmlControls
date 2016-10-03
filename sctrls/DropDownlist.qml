@@ -4,6 +4,7 @@ FocusScope {
     property var labelText: "filtre"
     property var contentText: "toutes"
     id: self
+    focus: true
     width: 400 * wScale
     height: 60 * hScale
     Item {
@@ -29,8 +30,8 @@ FocusScope {
         transform: Scale {
             origin.x: 0
             origin.y: item.height
-            xScale: activeFocus ? 1.2 : 1
-            yScale: activeFocus ? 1.2 : 1
+            xScale: self.activeFocus ? 1.2 : 1
+            yScale: self.activeFocus ? 1.2 : 1
         }
     }
     Triangle {
@@ -47,5 +48,4 @@ FocusScope {
         height: 2 * hScale
         color: "#393939"
     }
-    
 }
