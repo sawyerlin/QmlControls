@@ -35,6 +35,12 @@ StackView {
         }
     }
     Component {
+        id: dropDownListView
+        DropDownListView{
+            name: "dropDownListView"
+        }
+    }
+    Component {
         id: emptyView
         EmptyView {
             name: "emptyView"
@@ -54,6 +60,9 @@ StackView {
             break;
             case "profileSelectorView":
             navigation.push(profileSelectorView, {}, true);
+            break;
+            case "dropDownListView":
+            navigation.push(dropDownListView, {}, true);
             break;
             default: 
             navigation.push(emptyView, {}, true);
