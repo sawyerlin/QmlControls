@@ -51,7 +51,6 @@ FocusScope {
             isParentFocused: self.activeFocus
         }
     }
-    
     Item {
         visible: self.model.count == 0
         anchors.left: parent.left
