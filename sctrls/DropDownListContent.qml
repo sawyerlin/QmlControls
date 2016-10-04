@@ -7,6 +7,7 @@ FocusScope {
     property var closeCallback: undefined
 
     signal selected(var datas)
+    signal focusReleased()
 
     id: self
     focus: true
@@ -55,10 +56,18 @@ FocusScope {
                 text: datas.name
             }
             Keys.onReturnPressed: {
+                self.focusReleased();
                 self.selected({
                     index: index,
                     datas: datas
                 });
+                if (self.closeCallback) {
+                    self.closeCallback();
+                }
+            }
+            Keys.onBackPressed: {
+                event.received = true;
+                self.focusReleased();
                 if (self.closeCallback) {
                     self.closeCallback();
                 }

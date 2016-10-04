@@ -9,27 +9,35 @@ GridView {
     property var contentY: -self.visibleArea.yPosition * self.childrenRect.height
 
     id: self 
-    focus: true
     anchors.fill: parent
     cellWidth: self.width / self.columnSize
     cellHeight: self.height / self.rowSize
-    displayMarginBeginning: 150 * hScale
+    displayMarginBeginning: itemHeight / hScale
+    displayMarginEnd: 0 * hScale
     delegate: FocusScope {
         width: self.cellWidth
         height: self.cellHeight
         z: activeFocus ? 1 : 0
         Tile {
             width: {
-                if (index == 0) {
-                    self.itemWidth = datas.width * wScale;
+                if (datas) {
+                    if (index == 0) {
+                        self.itemWidth = datas.width * wScale;
+                    }
+                    return datas.width * wScale;
+                } else {
+                    return 0;
                 }
-                return datas.width * wScale;
             }
             height: {
-                if (index == 0) {
-                    self.itemHeight = datas.height * hScale;
+                if (datas) {
+                    if (index == 0) {
+                        self.itemHeight = datas.height * hScale;
+                    }
+                    return datas.height * hScale;
+                } else {
+                    return 0;
                 }
-                return datas.height * hScale;
             }
             title: datas.title
             anchors.right: parent.right

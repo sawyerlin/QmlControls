@@ -4,17 +4,21 @@ FocusScope {
     property var model: undefined
     property var labelText: "item"
     property var titleText: "choix d'un item"
-    property var currentIndex: 0
-    property var contentText: undefined 
+    property var contentText: "undefined"
 
     signal opened(var component)
     signal selected(var datas)
 
     id: self
     focus: true
-    width: 400 * wScale
-    height: 60 * hScale
-    Component.onCompleted: self.contentText = self.model.get(self.currentIndex).datas.name
+    width: 323 * wScale
+    height: 54 * hScale
+    Component.onCompleted: {
+        var currentItem = self.model.get(self.currentIndex);
+        if (currentItem) {
+            self.contentText = currentItem.datas.name;
+        }
+    }
     Item {
         id: item
         anchors.left: parent.left
@@ -23,14 +27,14 @@ FocusScope {
         height: childrenRect.height
         Text {
             id: label
-            font.pixelSize: 30 * hScale
+            font.pixelSize: 25 * hScale
             color: "#9C9C9C"
             text: self.labelText + " : "
             anchors.left: parent.left
         }
         Text {
             id: content
-            font.pixelSize: 30 * hScale
+            font.pixelSize: 25 * hScale
             color: "white"
             text: self.contentText
             anchors.left: label.right
@@ -38,8 +42,8 @@ FocusScope {
         transform: Scale {
             origin.x: 0
             origin.y: item.height
-            xScale: self.activeFocus ? 1.2 : 1
-            yScale: self.activeFocus ? 1.2 : 1
+            xScale: self.activeFocus ? 1.1 : 1
+            yScale: self.activeFocus ? 1.1 : 1
             Behavior on xScale {
                 NumberAnimation {
                     duration: 100 
@@ -72,9 +76,15 @@ FocusScope {
         DropDownListContent {
             anchors.fill: parent
             titleText: self.titleText
-            currentIndex: self.currentIndex
+            currentIndex: self.model ? self.model.selectedIndex : 0
             model: self.model 
             onSelected: {
+                if (datas) {
+                    self.contentText = datas.datas.name;
+                    self.selected(datas.datas);
+                }
+            }
+            onFocusReleased: {
                 var parent = self.parent;
                 while (parent) {
                     if (!parent.parent.activeFocus) {
@@ -84,9 +94,6 @@ FocusScope {
                         parent = undefined;
                     }
                 }
-                self.currentIndex = datas.index;
-                self.contentText = datas.datas.name;
-                self.selected(datas.datas);
             }
         }
     }
