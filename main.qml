@@ -19,10 +19,12 @@ FocusScope {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
+        anchors.leftMargin: 50 * wScale
+        anchors.rightMargin: 50 * wScale
         height: 200 * hScale
         focus: true
-        Rectangle {
-            color: "#555555"
+        FocusScope {
+            focus: true
             anchors.fill: parent
             NavigationContainer {
                 focus: true

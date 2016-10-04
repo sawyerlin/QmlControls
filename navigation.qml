@@ -3,7 +3,7 @@ import QtQuick 2.4
 import "sctrls"
 import "datas"
 import "lib"
-import "views"
+import "tests"
 
 StackView {
     id: navigation

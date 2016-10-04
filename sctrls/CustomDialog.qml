@@ -1,7 +1,7 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var callback: undefined
+    property var currentItem: undefined
     id: self
     z: -1
     anchors.fill: parent
@@ -10,15 +10,16 @@ FocusScope {
         color: Qt.rgba(0, 0, 0, 0.7)
     }
     Keys.onReturnPressed: self.hide()
-    function show(callback) {
+    function show(component) {
         self.z = 100;
         self.focus = true;
-        self.callback = callback;
-    }
-    function hide() {
-        self.z = -1;
-        if (self.callback) {
-            self.callback();
-        }
+        self.currentItem = component.createObject(self, {
+            closeCallback: function() {
+                self.z = -1;
+                if (self.currentItem) {
+                    self.currentItem.destroy();
+                }
+            }
+        });
     }
 }
