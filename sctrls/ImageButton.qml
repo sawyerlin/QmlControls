@@ -3,9 +3,14 @@ import QtGraphicalEffects 1.0
 
 FocusScope {
     property var imageSource: "../images/Image-50.png"
+    property var sideSize: 103
+    property var sideFocusSize: 123
+    property var focusScale: sideFocusSize / sideSize
+    property var mode: ""
 
-    width: 80
-    height: 80
+    id: self
+    width: sideSize * wScale
+    height: sideSize * hScale
     RectangularGlow {
         id: effect
         anchors.fill: rect
@@ -19,22 +24,23 @@ FocusScope {
         anchors.fill: parent
         color: "#414141"
         Image {
-            anchors.fill: parent
+            anchors.fill: self.mode == "fill" ? parent : null
+            anchors.centerIn: parent
             source: imageSource
         }
         transform: Scale {
             origin.x: width / 2
             origin.y: height / 2
-            xScale: activeFocus ? 1.1 : 1
-            yScale: activeFocus ? 1.1 : 1
+            xScale: activeFocus ? focusScale : 1
+            yScale: activeFocus ? focusScale : 1
             Behavior on xScale {
-                NumberAnimation { 
-                    duration: 100 
+                NumberAnimation {
+                    duration: 100
                 }
             }
             Behavior on yScale {
-                NumberAnimation { 
-                    duration: 100 
+                NumberAnimation {
+                    duration: 100
                 }
             }
         }
