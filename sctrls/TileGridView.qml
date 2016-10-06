@@ -14,6 +14,8 @@ GridView {
     cellWidth: self.width / self.columnSize
     cellHeight: self.height / self.rowSize
     displayMarginBeginning: itemHeight
+    preferredHighlightEnd:  itemHeight * 2
+    highlightRangeMode: GridView.ApplyRange
     delegate: FocusScope {
         width: self.cellWidth
         height: self.cellHeight
