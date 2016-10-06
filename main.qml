@@ -4,9 +4,6 @@ import "sctrls"
 import "datas"
 
 FocusScope {
-    property var realWidth: 1920
-    property var realHeight: 1080
-    id: main
     width: 1280
     height: 720
     focus: true
@@ -36,11 +33,7 @@ FocusScope {
     }
     Navigation {
         id: navigation
-        focus: true
         anchors.top: header.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
     }
     CustomDialog {
         id: dialog

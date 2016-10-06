@@ -7,9 +7,10 @@ import "tests"
 
 StackView {
     id: navigation
+    focus: true
     width: 1920
     height: 1080
-    focus: true
+    transform: Scale {origin.x: 0; origin.y: 0; xScale: parent.width / width; yScale: parent.height / height}
     Component {
         id: imageButtonView
         ImageButtonView {

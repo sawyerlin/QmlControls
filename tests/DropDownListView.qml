@@ -5,7 +5,7 @@ import "../sctrls"
 import "../datas"
 
 PageView {
-    DropDownlist {
+    DropDownList {
         id: self
         focus: true
         anchors.left: parent.left
