@@ -1,7 +1,7 @@
 import QtQuick 2.4
 
 Rectangle {
-    property var avatar: "../images/User-50.png"
+    property var avatar: undefined
     property var animationDuration: 100
     property var sideSize: 153
     property var sideFocusSize: 182
@@ -11,10 +11,10 @@ Rectangle {
     id: self
     width: sideSize
     height: sideSize
-    color: "black"
+    color: "#3F3F3F"
     Image {
         anchors.fill: self.mode == "fill" ? parent : null
-        anchors.centerIn: self.mode == "fill" ? null: parent
+        anchors.centerIn: parent
         source: self.avatar
     }
     transform: Scale {

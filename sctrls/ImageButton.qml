@@ -24,9 +24,9 @@ FocusScope {
         anchors.fill: parent
         color: "#414141"
         Image {
-            anchors.fill: self.mode == "fill" ? parent : null
+            anchors.fill: imageSource && self.mode == "fill" ? parent : null
             anchors.centerIn: parent
-            source: imageSource
+            source: imageSource || "../images/Image-50.png"
         }
         transform: Scale {
             origin.x: width / 2
