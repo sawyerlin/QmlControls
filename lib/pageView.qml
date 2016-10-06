@@ -7,7 +7,7 @@ FocusScope {
     Keys.onPressed: {
         if (event.key == Qt.Key_Back || event.key == Qt.Key_Backspace) {
             event.accepted = true;
-            navigation.pop();
+            close();
         }
     }
     onActiveFocusChanged: {
@@ -19,5 +19,19 @@ FocusScope {
         anchors.fill: parent
         color: "#242424"
     }
-    
+    Text {
+        id: emptyText
+        anchors.centerIn: parent
+        font.pixelSize: 50
+        color: "white"
+        text: name
+    }
+    Component.onCompleted: {
+        if (children.length > 2) {
+            emptyText.visible = false;
+        }
+    }
+    function close() {
+        navigation.pop();
+    }
 }
