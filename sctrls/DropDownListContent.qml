@@ -31,6 +31,7 @@ FocusScope {
         anchors.horizontalCenter: parent.horizontalCenter
         model: self.model
         currentIndex: self.currentIndex
+        highlightMoveDuration: 100
         delegate: Rectangle {
             height: 83
             anchors.left: parent.left

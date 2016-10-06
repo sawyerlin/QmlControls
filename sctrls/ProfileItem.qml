@@ -1,12 +1,7 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var profile: {
-        id: -1
-        name: "Nouveau Utilisateur"
-        avatar: "../images/User-50.png"
-        isChild: false
-    }
+    property var profile: undefined
 
     width: avatarView.width
     height: childrenRect.height
@@ -15,6 +10,7 @@ FocusScope {
         focus: true
         anchors.horizontalCenter: parent.horizontalCenter
         avatar: profile.avatar
+        mode: profile.id == undefined ? "center" : "fill"
     }
     Text {
         anchors.top: avatarView.bottom

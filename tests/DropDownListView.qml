@@ -8,10 +8,7 @@ PageView {
     DropDownList {
         id: self
         focus: true
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.leftMargin: 50
-        anchors.topMargin: 50
+        anchors.centerIn: parent
         onOpened: dialog.show(component)
         onSelected: console.log(JSON.stringify(datas))
         model: DropDownListItems {}

@@ -6,12 +6,15 @@ Rectangle {
     property var sideSize: 153
     property var sideFocusSize: 182
     property var focusScale: sideFocusSize / sideSize
+    property var mode: "fill"
 
     id: self
     width: sideSize
     height: sideSize
+    color: "black"
     Image {
-        anchors.fill: parent
+        anchors.fill: self.mode == "fill" ? parent : null
+        anchors.centerIn: self.mode == "fill" ? null: parent
         source: self.avatar
     }
     transform: Scale {

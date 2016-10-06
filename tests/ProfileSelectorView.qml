@@ -5,22 +5,24 @@ import "../sctrls"
 import "../datas"
 
 PageView {
-    FocusScope {
+    ListView {
+        id: listView
         focus: true
+        spacing: 50
         anchors.left: parent.left
+        anchors.leftMargin: 100
         anchors.right: parent.right
+        anchors.rightMargin: 100
         anchors.verticalCenter: parent.verticalCenter
-        ListView {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            focus: true
-            spacing: 50
-            highlightMoveDuration: 100
-            orientation: ListView.Horizontal
-            layoutDirection: Qt.LeftToRight
-            model: ProfileSelectorModel {}
-            delegate: ProfileItem {
-                profile: datas
+        highlightMoveDuration: 100
+        orientation: ListView.Horizontal
+        model: ProfileSelectorModel {}
+        delegate: ProfileItem {
+            profile: datas
+            Component.onCompleted: {
+                if (index == 0) {
+                    listView.height = height
+                }
             }
         }
     }

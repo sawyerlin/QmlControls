@@ -6,7 +6,7 @@ ListModel {
         for (var i = 0; i < 10; i ++) {
             self.append({
                 datas: {
-                    id: i,
+                    id: undefined,
                     name: "profile " + i,
                     avatar: "../images/User-50.png",
                     isChild: false
