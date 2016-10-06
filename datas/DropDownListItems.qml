@@ -1,6 +1,8 @@
 import QtQuick 2.4
 
 ListModel {
+    property var selectedIndex: 0
+
     id: self
     Component.onCompleted: {
         for (var i = 0; i < 20; i++) {

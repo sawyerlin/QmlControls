@@ -26,6 +26,7 @@ ListModel {
         });
         self.append({
             name: "TileGridContainer",
+            isDefault: true,
             datas: {
                 type: "tileGridContainerView",
                 url: ""
@@ -33,9 +34,15 @@ ListModel {
         });
         self.append({
             name: "DropDownList",
-            isDefault: true,
             datas: {
                 type: "dropDownListView",
+                url: ""
+            }
+        });
+        self.append({
+            name: "empty",
+            datas: {
+                type: "emptyView",
                 url: ""
             }
         });

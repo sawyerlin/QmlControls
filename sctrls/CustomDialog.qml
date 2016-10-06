@@ -9,7 +9,6 @@ FocusScope {
         anchors.fill: parent
         color: Qt.rgba(0, 0, 0, 0.7)
     }
-    Keys.onReturnPressed: self.hide()
     function show(component) {
         self.z = 100;
         self.focus = true;

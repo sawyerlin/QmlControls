@@ -5,8 +5,9 @@ import "datas"
 
 FocusScope {
     width: 1280
-    height: 720
+    height: 920
     focus: true
+    id: self
     FocusScope {
         id: header
         anchors.top: parent.top
@@ -33,7 +34,11 @@ FocusScope {
     }
     Navigation {
         id: navigation
-        anchors.top: header.bottom
+        anchors.top: parent.top
+        anchors.topMargin: header.height
+        width: 1920
+        height: 1080
+        transform: Scale {origin.x: 0; origin.y: 0; xScale: self.width / navigation.width; yScale: (self.height - header.height) / navigation.height;}
     }
     CustomDialog {
         id: dialog

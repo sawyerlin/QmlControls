@@ -12,9 +12,10 @@ FocusScope {
     id: self
     focus: true
     Text {
+        id: title
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        anchors.topMargin: 150
+        anchors.topMargin: 50
         text: titleText
         color: "white"
         font.pixelSize: 50
@@ -23,9 +24,11 @@ FocusScope {
         id: listView
         focus: true
         width: 299
-        height: 500 
         spacing: 10 
-        anchors.centerIn: parent
+        anchors.bottom: parent.bottom
+        anchors.top: title.bottom
+        anchors.topMargin: 60
+        anchors.horizontalCenter: parent.horizontalCenter
         model: self.model
         currentIndex: self.currentIndex
         delegate: Rectangle {
@@ -55,24 +58,31 @@ FocusScope {
                 color: activeFocus ? "#767676" : "#4A4A4A"
                 text: datas.name
             }
-            Keys.onReturnPressed: {
-                self.focusReleased();
-                self.selected({
-                    index: index,
-                    datas: datas
-                });
-                if (self.closeCallback) {
-                    self.closeCallback();
+            Keys.onPressed: {
+                switch(event.key) {
+                    case Qt.Key_Return:
+                    self.focusReleased();
+                    self.selected({
+                        index: index,
+                        datas: datas
+                    });
+                    if (self.closeCallback) {
+                        self.closeCallback();
+                    }
+                    break;
+                    case Qt.Key_Back:
+                    case Qt.Key_Backspace:
+                    event.received = true;
+                    self.focusReleased();
+                    if (self.closeCallback) {
+                        self.closeCallback();
+                    }
+                    break;
                 }
-            }
-            Keys.onBackPressed: {
-                event.received = true;
-                self.focusReleased();
-                if (self.closeCallback) {
-                    self.closeCallback();
-                }
+                
             }
         }
+        
         Component.onCompleted: positionViewAtIndex(self.currentIndex, ListView.Beginning)
     }
 }

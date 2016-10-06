@@ -7,6 +7,7 @@ import "../datas"
 PageView {
     TileGridView {
         anchors.fill: parent
+        focus: true
         anchors.topMargin: 50 
         anchors.bottomMargin: 50 
         anchors.leftMargin: 100 

@@ -19,4 +19,5 @@ FocusScope {
         anchors.fill: parent
         color: "#242424"
     }
+    
 }

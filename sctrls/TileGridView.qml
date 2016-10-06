@@ -8,6 +8,7 @@ GridView {
     property var widthSpacing: columnSize * (cellWidth - itemWidth) / (columnSize - 1)
     property var contentY: -self.visibleArea.yPosition * self.childrenRect.height
 
+    
     id: self 
     anchors.fill: parent
     cellWidth: self.width / self.columnSize
