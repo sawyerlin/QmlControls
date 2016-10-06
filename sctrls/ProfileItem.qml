@@ -8,8 +8,8 @@ FocusScope {
         isChild: false
     }
 
-    width: 200
-    height: 1
+    width: avatarView.width
+    height: childrenRect.height
     Avatar {
         id: avatarView
         focus: true
@@ -22,7 +22,7 @@ FocusScope {
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 30
         color: "white"
-        text: profile.name
         font.bold: parent.activeFocus
+        text: profile.name
     }
 }
