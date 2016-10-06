@@ -7,10 +7,10 @@ import "../datas"
 PageView {
     TileGridView {
         anchors.fill: parent
-        anchors.topMargin: 50 * hScale
-        anchors.bottomMargin: 50 * hScale
-        anchors.leftMargin: 100 * wScale
-        anchors.rightMargin: 100 * wScale
+        anchors.topMargin: 50 
+        anchors.bottomMargin: 50 
+        anchors.leftMargin: 100 
+        anchors.rightMargin: 100 
         model: TileGridItems {}
     }
 }

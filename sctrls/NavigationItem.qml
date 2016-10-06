@@ -3,7 +3,7 @@ import QtQuick 2.4
 FocusScope {
     property var fontColor: "#000000"
     property var itemValue: "item"
-    property var textSize: 53 * wScale
+    property var textSize: 53
 
     width: text.width
     Text {

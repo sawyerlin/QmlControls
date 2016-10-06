@@ -8,7 +8,7 @@ FocusScope {
     signal pressed(var datas)
 
     id: self
-    height: 170 * hScale
+    height: 170
     ListView {
         id: listView
         focus: true

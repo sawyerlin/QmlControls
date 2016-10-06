@@ -1,8 +1,8 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var fontSize: 30 * hScale
-    property var fontFocusSize: 39 * hScale
+    property var fontSize: 30
+    property var fontFocusSize: 39
     property var fontScale: fontFocusSize / fontSize
     property var title: undefined
     property var color: undefined
@@ -11,7 +11,7 @@ FocusScope {
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: parent.right
-    height: fontSize + 50 * hScale
+    height: fontSize + 50
     Item {
         focus: true
         id: item

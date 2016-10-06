@@ -4,13 +4,13 @@ FocusScope {
     property var model: undefined
     property var itemSpacing: 10
     property var marginBottom: 20
-    property var itemHeight: 192 * hScale
+    property var itemHeight: 192
 
     signal moreClicked(var datas)
 
     id: self
     focus: true
-    height: itemHeight + header.height + marginBottom * hScale
+    height: itemHeight + header.height + marginBottom
     TileHeader {
         id: header
         focus: true
@@ -25,23 +25,23 @@ FocusScope {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: header.bottom
-        spacing: itemSpacing * wScale
+        spacing: itemSpacing
         orientation: ListView.Horizontal
         layoutDirection: Qt.LeftToRight
         highlightMoveDuration: 100
         displayMarginEnd: 50
         delegate: Tile {
-            width: datas.width * wScale
+            width: datas.width
             height: {
                 if (index == 0) {
-                    self.itemHeight = datas.height * hScale;
+                    self.itemHeight = datas.height;
                 }
-                return datas.height * hScale;
+                return datas.height;
             }
             title: datas.title
             desc: datas.desc
-            widthFocus: datas.widthFocus * wScale
-            heightFocus: datas.heightFocus * hScale
+            widthFocus: datas.widthFocus
+            heightFocus: datas.heightFocus
             background: datas.background
             progressValue: datas.progressValue
             isParentFocused: self.activeFocus
@@ -52,10 +52,10 @@ FocusScope {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: header.bottom
-        height: itemHeight * hScale
+        height: itemHeight
         Text {
             color: "white"
-            font.pixelSize: 25 * hScale
+            font.pixelSize: 25
             text: self.model.emptyMessage || ""
         }
     }

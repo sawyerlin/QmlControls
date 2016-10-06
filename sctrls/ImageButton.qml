@@ -9,8 +9,8 @@ FocusScope {
     property var mode: ""
 
     id: self
-    width: sideSize * wScale
-    height: sideSize * hScale
+    width: sideSize
+    height: sideSize
     RectangularGlow {
         id: effect
         anchors.fill: rect

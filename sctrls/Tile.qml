@@ -5,8 +5,8 @@ FocusScope {
     property var desc: undefined
     property var background: undefined
     property var progressValue: undefined
-    property var widthFocus: 434 * wScale
-    property var heightFocus: 270 * hScale
+    property var widthFocus: 434
+    property var heightFocus: 270
     property var isParentFocused: false
     property var backgroundDefaultImage: "../images/Image-50.png"
     property var hasBackgroundImage: background != undefined && background != backgroundDefaultImage

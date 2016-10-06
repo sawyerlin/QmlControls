@@ -14,7 +14,7 @@ PageView {
             anchors.left: parent.left
             anchors.right: parent.right
             focus: true
-            spacing: 50 * wScale
+            spacing: 50
             highlightMoveDuration: 100
             orientation: ListView.Horizontal
             layoutDirection: Qt.LeftToRight

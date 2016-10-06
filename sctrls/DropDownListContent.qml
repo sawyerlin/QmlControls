@@ -14,22 +14,22 @@ FocusScope {
     Text {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        anchors.topMargin: 150 * hScale
-        text: titleText 
+        anchors.topMargin: 150
+        text: titleText
         color: "white"
-        font.pixelSize: 50 * hScale
+        font.pixelSize: 50
     }
     ListView {
         id: listView
         focus: true
-        width: 299 * wScale
-        height: 500 * hScale
-        spacing: 10 * hScale
+        width: 299
+        height: 500 
+        spacing: 10 
         anchors.centerIn: parent
         model: self.model
         currentIndex: self.currentIndex
         delegate: Rectangle {
-            height: 83 * hScale 
+            height: 83
             anchors.left: parent.left
             anchors.right: parent.right
             color: activeFocus ? "#999999" : "#2B2B2B"
@@ -51,7 +51,7 @@ FocusScope {
             }
             Text {
                 anchors.centerIn: parent
-                font.pixelSize: 30 * hScale
+                font.pixelSize: 30
                 color: activeFocus ? "#767676" : "#4A4A4A"
                 text: datas.name
             }
