@@ -11,9 +11,9 @@ AnimateFocusScope {
     height: 84
     RectangularGlow {
         anchors.fill: parent
-        glowRadius: 20
+        glowRadius: 10
         spread: 0.1
-        color: "#282828"
+        color: Qt.rgba(0, 0, 0, 0.2)
         cornerRadius: 0
     }
     Rectangle {

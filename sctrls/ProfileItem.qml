@@ -2,18 +2,16 @@ import QtQuick 2.4
 
 FocusScope {
     property var profile: undefined
-
-    signal clicked(var profile)
+    property var isEmpty: self.profile.id == undefined
 
     id: self
     width: avatarView.width
     height: childrenRect.height
     Avatar {
         id: avatarView
-        focus: true
+        avatar: profile.avatar.datas
+        isEmpty: self.isEmpty
         anchors.horizontalCenter: parent.horizontalCenter
-        avatar: profile.id == undefined ? "../images/Add.png" : profile.avatar
-        mode: profile.id == undefined ? "center" : "fill"
     }
     Text {
         visible: profile.id != undefined
@@ -23,7 +21,6 @@ FocusScope {
         font.pixelSize: 30
         color: "white"
         font.bold: parent.activeFocus
-        text: profile.id == undefined ? "" : profile.name
+        text: self.isEmpty ? "" : profile.name
     }
-    Keys.onReturnPressed: self.clicked(self.profile)
 }

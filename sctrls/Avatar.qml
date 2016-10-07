@@ -2,25 +2,24 @@ import QtQuick 2.4
 
 AnimateFocusScope {
     property var avatar: undefined
-    property var animationDuration: 100
-    property var sideSize: 153
-    property var sideFocusSize: 182
-    property var focusScale: sideFocusSize / sideSize
-    property var mode: "fill"
+    property var isEmpty: false
+    property var sideSize: self.avatar.sideSize
+    property var sideFocusSize: self.avatar.sideFocusSize
+    property var focusScale:  sideFocusSize / sideSize
 
     id: self
     width: sideSize
     height: sideSize
-    xScale: sideFocusSize / sideSize
-    yScale: sideFocusSize / sideSize
+    xScale: self.focusScale
+    yScale: self.focusScale
     Rectangle {
         anchors.fill: parent
-        visible: self.mode != "fill"
+        visible: self.isEmpty
         color: "#3F3F3F"
     }
     Image {
-        anchors.fill: self.mode == "fill" ? parent : null
+        anchors.fill: self.isEmpty ? null : parent
         anchors.centerIn: parent
-        source: self.avatar
+        source: self.isEmpty ? "../images/Add.png" : self.avatar.imageUrl
     }
 }
