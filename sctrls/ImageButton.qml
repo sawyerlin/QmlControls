@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import QtGraphicalEffects 1.0
 
-FocusScope {
+AnimateFocusScope {
     property var imageSource: "../images/Image-50.png"
     property var sideSize: 103
     property var sideFocusSize: 123
@@ -11,6 +11,8 @@ FocusScope {
     id: self
     width: sideSize
     height: sideSize
+    xScale: focusScale
+    yScale: focusScale
     RectangularGlow {
         id: effect
         anchors.fill: rect
@@ -27,22 +29,6 @@ FocusScope {
             anchors.fill: imageSource && self.mode == "fill" ? parent : null
             anchors.centerIn: parent
             source: imageSource || "../images/Image-50.png"
-        }
-        transform: Scale {
-            origin.x: width / 2
-            origin.y: height / 2
-            xScale: activeFocus ? focusScale : 1
-            yScale: activeFocus ? focusScale : 1
-            Behavior on xScale {
-                NumberAnimation {
-                    duration: 100
-                }
-            }
-            Behavior on yScale {
-                NumberAnimation {
-                    duration: 100
-                }
-            }
         }
     }
 }

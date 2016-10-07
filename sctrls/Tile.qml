@@ -15,8 +15,11 @@ FocusScope {
     id: self
     focus: true
     z: activeFocus ? 1 : 0
-    FocusScope {
+    AnimateFocusScope {
         focus: true
+        xScale: widthFocus / width
+        yScale: heightFocus /height
+        onXStopped: rectCover.visible = isParentFocused || self.activeFocus
         anchors.fill: parent
         Rectangle {
             anchors.fill: parent
@@ -75,25 +78,6 @@ FocusScope {
             color: Qt.rgba(0, 0, 0, 0.5)
             width: parent.width
             height: parent.height
-        }
-        transform: Scale {
-            origin.x: width / 2
-            origin.y: height / 2
-            xScale: activeFocus ? widthFocus / width : 1
-            yScale: activeFocus ? heightFocus / height : 1
-            Behavior on xScale {
-                NumberAnimation { 
-                    duration: 100 
-                    onStopped: {
-                        rectCover.visible = isParentFocused || self.activeFocus
-                    }
-                }
-            }
-            Behavior on yScale {
-                NumberAnimation { 
-                    duration: 100 
-                }
-            }
         }
     }
 }

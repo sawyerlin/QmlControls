@@ -17,10 +17,10 @@ FocusScope {
         spacing: itemSpacing
         orientation: ListView.Horizontal
         model: self.model
-        delegate: NavigationItem {
+        delegate: CustomText {
             height: parent.height
-            itemValue: name 
-            fontColor: isDefault ? "white" : "black"
+            text: name 
+            color: isDefault ? "white" : "black"
             focus: isDefault
             Keys.onReturnPressed: {
                 if (!isDefault) {

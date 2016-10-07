@@ -1,6 +1,6 @@
 import QtQuick 2.4
 
-Rectangle {
+AnimateFocusScope {
     property var avatar: undefined
     property var animationDuration: 100
     property var sideSize: 153
@@ -11,26 +11,16 @@ Rectangle {
     id: self
     width: sideSize
     height: sideSize
-    color: "#3F3F3F"
+    xScale: sideFocusSize / sideSize
+    yScale: sideFocusSize / sideSize
+    Rectangle {
+        anchors.fill: parent
+        visible: self.mode != "fill"
+        color: "#3F3F3F"
+    }
     Image {
         anchors.fill: self.mode == "fill" ? parent : null
         anchors.centerIn: parent
         source: self.avatar
-    }
-    transform: Scale {
-        origin.x: sideSize / 2
-        origin.y: sideSize / 2
-        xScale: activeFocus ? focusScale : 1
-        yScale: activeFocus ? focusScale : 1
-        Behavior on xScale {
-            NumberAnimation {
-                duration: animationDuration
-            }
-        }
-        Behavior on yScale {
-            NumberAnimation {
-                duration: animationDuration
-            }
-        }
     }
 }

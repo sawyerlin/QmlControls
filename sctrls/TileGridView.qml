@@ -7,7 +7,6 @@ GridView {
     property var rowSize: Math.floor(self.height / self.itemHeight)
     property var widthSpacing: columnSize * (cellWidth - itemWidth) / (columnSize - 1)
     property var contentY: -self.visibleArea.yPosition * self.childrenRect.height
-
     
     id: self 
     anchors.fill: parent

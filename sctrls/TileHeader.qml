@@ -12,9 +12,11 @@ FocusScope {
     anchors.left: parent.left
     anchors.right: parent.right
     height: fontSize + 50
-    Item {
-        focus: true
+    AnimateFocusScope {
         id: item
+        xScale: fontScale
+        yScale: fontScale
+        focus: true
         anchors.verticalCenter: parent.verticalCenter
         Text {
             id: text
@@ -29,22 +31,6 @@ FocusScope {
             anchors.leftMargin: 10
             anchors.verticalCenter: text.verticalCenter
             source: "../images/ArrowRight-24.png"
-        }
-        transform: Scale {
-            origin.x: item.width / 2
-            origin.y: item.height / 2
-            xScale: activeFocus ? fontScale : 1
-            yScale: activeFocus ? fontScale : 1
-            Behavior on xScale {
-                NumberAnimation { 
-                    duration: 100 
-                }
-            }
-            Behavior on yScale {
-                NumberAnimation { 
-                    duration: 100 
-                }
-            }
         }
     }
 }

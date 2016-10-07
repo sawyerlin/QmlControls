@@ -19,12 +19,15 @@ FocusScope {
             self.contentText = currentItem.datas.name;
         }
     }
-    Item {
+    AnimateFocusScope {
         id: item
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.right: parent.right
         height: childrenRect.height
+        xOrigin: 0
+        xScale: 1.1
+        yScale: 1.1
         Text {
             id: label
             font.pixelSize: 25
@@ -38,22 +41,6 @@ FocusScope {
             color: "white"
             text: self.contentText
             anchors.left: label.right
-        }
-        transform: Scale {
-            origin.x: 0
-            origin.y: item.height
-            xScale: self.activeFocus ? 1.1 : 1
-            yScale: self.activeFocus ? 1.1 : 1
-            Behavior on xScale {
-                NumberAnimation {
-                    duration: 100 
-                }
-            }
-            Behavior on yScale {
-                NumberAnimation {
-                    duration: 100 
-                }
-            }
         }
     }
     Triangle {

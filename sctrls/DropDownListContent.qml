@@ -32,32 +32,21 @@ FocusScope {
         model: self.model
         currentIndex: self.currentIndex
         highlightMoveDuration: 100
-        delegate: Rectangle {
+        delegate: AnimateFocusScope {
             height: 83
+            xScale: 382 / 299
+            yScale: 99 / 83
             anchors.left: parent.left
             anchors.right: parent.right
-            color: activeFocus ? "#999999" : "#2B2B2B"
-            transform: Scale {
-                origin.x: width / 2
-                origin.y: height / 2
-                xScale: activeFocus ? 382 / 299 : 1
-                yScale: activeFocus ? 99 / 83 : 1
-                Behavior on xScale {
-                    NumberAnimation { 
-                        duration: 100 
-                    }
+            Rectangle {
+                anchors.fill: parent
+                color: parent.activeFocus ? "#999999" : "#2B2B2B"
+                Text {
+                    anchors.centerIn: parent
+                    font.pixelSize: 30
+                    color: parent.activeFocus ? "#767676" : "#4A4A4A"
+                    text: datas.name
                 }
-                Behavior on yScale {
-                    NumberAnimation {
-                        duration: 100
-                    }
-                }
-            }
-            Text {
-                anchors.centerIn: parent
-                font.pixelSize: 30
-                color: activeFocus ? "#767676" : "#4A4A4A"
-                text: datas.name
             }
             Keys.onPressed: {
                 switch(event.key) {
@@ -80,10 +69,8 @@ FocusScope {
                     }
                     break;
                 }
-                
             }
         }
-        
         Component.onCompleted: positionViewAtIndex(self.currentIndex, ListView.Beginning)
     }
 }
