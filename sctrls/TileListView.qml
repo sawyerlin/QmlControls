@@ -16,6 +16,7 @@ FocusScope {
         focus: true
         title: self.model.title
         color: self.model.color || "white"
+        Keys.onReturnPressed: self.moreClicked(self.model.originDatas)
         KeyNavigation.down: list
     }
     ListView {
