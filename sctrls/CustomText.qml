@@ -4,12 +4,13 @@ AnimateFocusScope {
     property var fontColor: "#000000"
     property var text: "item"
     property var color: "white"
-    property var pixelSize: 53
+    property var pixelSize: 32
+    property var pixelFocusSize: 44
 
     id: self
     focus: true
-    xScale: 1.1
-    yScale: 1.1
+    xScale: pixelFocusSize / pixelSize
+    yScale: pixelFocusSize / pixelSize
     width: textView.width
     height: self.pixelSize
     Text {

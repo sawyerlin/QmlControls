@@ -20,7 +20,7 @@ FocusScope {
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 30
         color: "white"
-        font.bold: parent.activeFocus
+        font.family: parent.activeFocus ? fontBold.name : fontNormal.name
         text: self.isEmpty ? "" : profile.name
     }
 }
