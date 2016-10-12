@@ -1,7 +1,7 @@
 import QtQuick 2.4
 
 FocusScope {
-    property var fontSize: 30
+    property var fontSize: 40
     property var fontFocusSize: 39
     property var fontScale: fontFocusSize / fontSize
     property var title: undefined
@@ -23,6 +23,7 @@ FocusScope {
             anchors.verticalCenter: parent.verticalCenter
             text: self.title || "title not defined"
             color: self.color || "white"
+            font.family: fontNormal.name
             font.pixelSize: fontSize
         }
         Image {

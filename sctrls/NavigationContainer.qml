@@ -2,7 +2,7 @@ import QtQuick 2.4
 
 FocusScope {
     property var model: undefined 
-    property var itemSpacing: 30
+    property var itemSpacing: 99
     property var currentIndex: 0
 
     signal pressed(var datas)
@@ -20,6 +20,8 @@ FocusScope {
         delegate: CustomText {
             height: parent.height
             text: name 
+            pixelSize: 40
+            pixelFocusSize: 52
             color: isDefault ? "white" : "black"
             focus: isDefault
             Keys.onReturnPressed: {

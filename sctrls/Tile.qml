@@ -33,33 +33,32 @@ FocusScope {
             Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: self.height * 0.3
+                height: 84 
                 visible: showSubBand
-                color: Qt.rgba(0, 0, 0, 0.7)
+                color: Qt.rgba(0, 0, 0, 0.6)
                 Text {
                     text: self.title || "title undefined"
-                    font.pixelSize: self.height * 0.1
-                    font.bold: true
+                    font.pixelSize: 30
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.topMargin: self.height * 0.05
-                    anchors.leftMargin: self.height * 0.08
-                    anchors.rightMargin: self.height * 0.08
+                    anchors.topMargin: 18
+                    anchors.leftMargin: 21
                     elide: Text.ElideRight
-                    color: "white"
+                    font.family: fontBold.name
+                    color: "#FFFFFF"
                 }
                 Text {
                     text: desc || "desc undefined"
-                    font.pixelSize: self.height * 0.09
+                    font.pixelSize: 20
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
-                    anchors.bottomMargin: self.height * 0.03
-                    anchors.leftMargin: self.height * 0.08
+                    anchors.bottomMargin: 15
+                    anchors.leftMargin: 21
                     anchors.right: parent.right
-                    anchors.rightMargin: self.height * 0.08
                     elide: Text.ElideRight
-                    color: "white"
+                    font.family: fontNormal.name
+                    color: "#CCCCCC"
                 }
                 anchors.bottom: progressBar.top
             }

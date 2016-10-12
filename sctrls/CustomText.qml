@@ -18,6 +18,7 @@ AnimateFocusScope {
         color: self.color
         anchors.centerIn: parent
         font.pixelSize: self.pixelSize
+        font.family: fontNormal.name
         text: self.text
     }
 }

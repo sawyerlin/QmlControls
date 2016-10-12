@@ -12,7 +12,6 @@ AnimateFocusScope {
     RectangularGlow {
         anchors.fill: parent
         glowRadius: 10
-        spread: 0.1
         color: Qt.rgba(0, 0, 0, 0.2)
         cornerRadius: 0
     }
@@ -23,6 +22,7 @@ AnimateFocusScope {
     Text {
         anchors.centerIn: parent
         font.pixelSize: 28
+        font.family: fontNormal.name
         text: self.text
         color: "#999999"
     }
