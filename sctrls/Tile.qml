@@ -51,6 +51,7 @@ FocusScope {
                     anchors.right: parent.right
                     anchors.topMargin: bannerTitleTopMargin
                     anchors.leftMargin: bannerTitleLeftMargin
+                    anchors.rightMargin: bannerTitleLeftMargin
                     elide: Text.ElideRight
                     font.family: fontBold.name
                     color: "#FFFFFF"

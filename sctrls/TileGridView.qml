@@ -9,9 +9,10 @@ GridView {
     property var contentY: -self.visibleArea.yPosition * self.childrenRect.height
     
     id: self 
+    height: self.itemHeight * 4
     anchors.fill: parent
     cellWidth: self.width / self.columnSize
-    cellHeight: self.height / self.rowSize
+    cellHeight: self.itemHeight + 20
     displayMarginBeginning: itemHeight * 2
     delegate: FocusScope {
         width: self.cellWidth
@@ -47,6 +48,13 @@ GridView {
             heightFocus: datas.heightFocus 
             background: datas.background
             progressValue: datas.progressValue
+            bannerHeight: datas.bannerHeight
+            bannerTitleSize: datas.bannerTitleSize
+            bannerTitleTopMargin: datas.bannerTitleTopMargin
+            bannerTitleLeftMargin: datas.bannerTitleLeftMargin
+            bannerDescSize: datas.bannerDescSize
+            bannerDescBottomMargin: datas.bannerDescBottomMargin
+            bannerDescLeftMargin: datas.bannerDescLeftMargin
             isParentFocused: false
         }
     }

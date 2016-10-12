@@ -11,8 +11,8 @@ FocusScope {
 
     id: self
     focus: true
-    width: 323
-    height: 54
+    width: 321
+    height: 52
     Component.onCompleted: {
         var currentItem = self.model.get(self.currentIndex);
         if (currentItem) {
@@ -30,34 +30,36 @@ FocusScope {
         yScale: 1.1
         Text {
             id: label
-            font.pixelSize: 25
-            color: "#9C9C9C"
+            font.pixelSize: 30
+            color: "#999999"
             font.family: fontNormal.name
             text: self.labelText + " : "
             anchors.left: parent.left
         }
         Text {
             id: content
-            font.pixelSize: 25
+            font.pixelSize: 30
             font.family: fontNormal.name
-            color: "white"
+            color: "#ffffff"
             text: self.contentText
             anchors.left: label.right
         }
     }
     Triangle {
         type: "down"
-        width: 18
-        height: 9
+        width: 15
+        height: 8
         anchors.right: self.right
-        anchors.verticalCenter: item.verticalCenter
+        anchors.bottom: self.bottom
+        anchors.bottomMargin: 30
+        //anchors.verticalCenter: item.verticalCenter
     }
     Rectangle {
         anchors.bottom: self.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         height: 2
-        color: "#393939"
+        color: "#3F3F3F"
     }
     Keys.onReturnPressed: opened(dropdownlist)
     Component {
