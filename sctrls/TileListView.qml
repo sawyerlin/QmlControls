@@ -6,6 +6,7 @@ FocusScope {
     property var itemHeight: 192
 
     signal moreClicked(var datas)
+    signal clicked(var sourceUrl)
 
     id: self
     focus: true
@@ -51,6 +52,7 @@ FocusScope {
             bannerDescBottomMargin: datas.bannerDescBottomMargin
             bannerDescLeftMargin: datas.bannerDescLeftMargin
             isParentFocused: self.activeFocus
+            Keys.onReturnPressed: self.clicked(datas.sourceUrl)
         }
     }
     Item {

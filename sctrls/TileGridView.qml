@@ -7,6 +7,8 @@ GridView {
     property var rowSize: Math.floor(self.height / self.itemHeight)
     property var widthSpacing: columnSize * (cellWidth - itemWidth) / (columnSize - 1)
     property var contentY: -self.visibleArea.yPosition * self.childrenRect.height
+
+    signal clicked(var sourceUrl)
     
     id: self 
     height: self.itemHeight * 4
@@ -56,6 +58,7 @@ GridView {
             bannerDescBottomMargin: datas.bannerDescBottomMargin
             bannerDescLeftMargin: datas.bannerDescLeftMargin
             isParentFocused: false
+            Keys.onReturnPressed: self.clicked(datas.sourceUrl)
         }
     }
 }
