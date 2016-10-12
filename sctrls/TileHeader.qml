@@ -2,7 +2,7 @@ import QtQuick 2.4
 
 FocusScope {
     property var fontSize: 40
-    property var fontFocusSize: 39
+    property var fontFocusSize: 52
     property var fontScale: fontFocusSize / fontSize
     property var title: undefined
     property var color: undefined
@@ -27,11 +27,15 @@ FocusScope {
             font.pixelSize: fontSize
         }
         Image {
+            id: imagex
             visible: self.activeFocus
             anchors.left: text.right
-            anchors.leftMargin: 10
+            anchors.leftMargin: 20
             anchors.verticalCenter: parent.verticalCenter
-            source: "../images/ArrowRight-24.png"
+            fillMode: Image.Stretch
+            width: 24
+            height: 17
+            source: "../images/ArrowRight.png"
         }
     }
 }

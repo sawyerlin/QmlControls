@@ -2,7 +2,7 @@ import QtQuick 2.4
 
 FocusScope {
     property var model: undefined
-    property var itemSpacing: 10
+    property var itemSpacing: 20
     property var itemHeight: 192
 
     signal moreClicked(var datas)
@@ -43,6 +43,13 @@ FocusScope {
             heightFocus: datas.heightFocus
             background: datas.background
             progressValue: datas.progressValue
+            bannerHeight: datas.bannerHeight
+            bannerTitleSize: datas.bannerTitleSize
+            bannerTitleTopMargin: datas.bannerTitleTopMargin
+            bannerTitleLeftMargin: datas.bannerTitleLeftMargin
+            bannerDescSize: datas.bannerDescSize
+            bannerDescBottomMargin: datas.bannerDescBottomMargin
+            bannerDescLeftMargin: datas.bannerDescLeftMargin
             isParentFocused: self.activeFocus
         }
     }
