@@ -9,5 +9,6 @@ PageView {
         text: "empty view"
         color: "white"
         font.pixelSize: 50
+        font.family: fontNormal.name
     }
 }

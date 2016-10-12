@@ -19,6 +19,7 @@ FocusScope {
         text: titleText
         color: "white"
         font.pixelSize: 50
+        font.family: fontNormal.name
     }
     ListView {
         id: listView
@@ -44,6 +45,7 @@ FocusScope {
                 Text {
                     anchors.centerIn: parent
                     font.pixelSize: 30
+                    font.family: fontNormal.name
                     color: parent.activeFocus ? "#767676" : "#4A4A4A"
                     text: datas.name
                 }

@@ -12,7 +12,6 @@ AnimateFocusScope {
     xScale: pixelFocusSize / pixelSize
     yScale: pixelFocusSize / pixelSize
     width: textView.width
-    height: self.pixelSize
     Text {
         id: textView
         color: self.color

@@ -2,13 +2,12 @@ import QtQuick 2.4
 
 FocusScope {
     property var model: undefined 
-    property var itemSpacing: 99
+    property var itemSpacing: 100
     property var currentIndex: 0
 
     signal pressed(var datas)
 
     id: self
-    height: 170
     ListView {
         id: listView
         focus: true
@@ -18,7 +17,6 @@ FocusScope {
         orientation: ListView.Horizontal
         model: self.model
         delegate: CustomText {
-            height: parent.height
             text: name 
             pixelSize: 40
             pixelFocusSize: 52
@@ -26,7 +24,7 @@ FocusScope {
             focus: isDefault
             Keys.onReturnPressed: {
                 if (!isDefault) {
-                    pressed(datas)
+                    pressed(datas);
                     self.model.setProperty(self.currentIndex, "isDefault", false);
                     self.model.setProperty(index, "isDefault", true);
                     self.currentIndex = index;

@@ -3,14 +3,13 @@ import QtQuick 2.4
 FocusScope {
     property var model: undefined
     property var itemSpacing: 10
-    property var marginBottom: 20
     property var itemHeight: 192
 
     signal moreClicked(var datas)
 
     id: self
     focus: true
-    height: itemHeight + header.height + marginBottom
+    height: itemHeight + header.height
     TileHeader {
         id: header
         focus: true
@@ -55,6 +54,7 @@ FocusScope {
         height: itemHeight
         Text {
             color: "white"
+            font.family: fontNormal.name
             font.pixelSize: 25
             text: self.model.emptyMessage || ""
         }

@@ -32,12 +32,14 @@ FocusScope {
             id: label
             font.pixelSize: 25
             color: "#9C9C9C"
+            font.family: fontNormal.name
             text: self.labelText + " : "
             anchors.left: parent.left
         }
         Text {
             id: content
             font.pixelSize: 25
+            font.family: fontNormal.name
             color: "white"
             text: self.contentText
             anchors.left: label.right

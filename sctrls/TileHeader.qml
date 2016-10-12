@@ -11,7 +11,7 @@ FocusScope {
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: parent.right
-    height: fontSize + 50
+    height: 93
     AnimateFocusScope {
         id: item
         xScale: fontScale
@@ -30,7 +30,7 @@ FocusScope {
             visible: self.activeFocus
             anchors.left: text.right
             anchors.leftMargin: 10
-            anchors.verticalCenter: text.verticalCenter
+            anchors.verticalCenter: parent.verticalCenter
             source: "../images/ArrowRight-24.png"
         }
     }
