@@ -64,11 +64,11 @@ FocusScope {
                     break;
                     case Qt.Key_Back:
                     case Qt.Key_Backspace:
-                    event.received = true;
                     self.focusReleased();
                     if (self.closeCallback) {
                         self.closeCallback();
                     }
+                    event.accepted = true;
                     break;
                 }
             }

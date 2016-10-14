@@ -52,7 +52,6 @@ FocusScope {
         anchors.right: self.right
         anchors.bottom: self.bottom
         anchors.bottomMargin: 30
-        //anchors.verticalCenter: item.verticalCenter
     }
     Rectangle {
         anchors.bottom: self.bottom
