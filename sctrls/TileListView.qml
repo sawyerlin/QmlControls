@@ -4,6 +4,7 @@ FocusScope {
     property var model: undefined
     property var itemSpacing: 20
     property var itemHeight: 192
+    property var focusPlace: "title"
 
     signal moreClicked(var datas)
     signal clicked(var sourceUrl)
@@ -13,7 +14,7 @@ FocusScope {
     height: itemHeight + header.height
     TileHeader {
         id: header
-        focus: true
+        focus: self.focusPlace == "title"
         title: self.model.title
         color: self.model.color || "white"
         Keys.onReturnPressed: self.moreClicked(self.model.originDatas)
@@ -21,6 +22,7 @@ FocusScope {
     }
     ListView {
         id: list
+        focus: self.focusPlace == "list" ? true : false
         model: self.model
         anchors.left: parent.left
         anchors.right: parent.right

@@ -7,15 +7,30 @@ GridView {
     property var rowSize: Math.floor(self.height / self.itemHeight)
     property var widthSpacing: columnSize * (cellWidth - itemWidth) / (columnSize - 1)
     property var contentY: -self.visibleArea.yPosition * self.childrenRect.height
+    property var preferredBegin: self.itemHeight
+    property var preferredEnd: self.itemHeight * 2
 
     signal clicked(var sourceUrl)
     
     id: self 
-    height: self.itemHeight * 4
     anchors.fill: parent
     cellWidth: self.width / self.columnSize
     cellHeight: self.itemHeight + 20
     displayMarginBeginning: itemHeight * 2
+    preferredHighlightBegin: 0
+    preferredHighlightEnd: self.height - self.itemHeight
+    highlightRangeMode: ListView.ApplyRange
+    Keys.onPressed: {
+        if (event.key == Qt.Key_Up) {
+            if (self.currentIndex == self.columnSize) {
+                self.preferredHighlightBegin = 0;
+            }
+        } else if (event.key == Qt.Key_Down) {
+            if (self.currentIndex == self.columnSize) {
+                self.preferredHighlightBegin = -110;
+            }
+        }
+    }
     delegate: FocusScope {
         width: self.cellWidth
         height: self.cellHeight
@@ -46,6 +61,7 @@ GridView {
             anchors.rightMargin: (index % columnSize + 1) * (cellWidth - itemWidth) - index % columnSize * widthSpacing 
             anchors.top: parent.top
             desc: datas.desc
+            isParentFocused: false
             widthFocus: datas.widthFocus
             heightFocus: datas.heightFocus 
             background: datas.background
@@ -57,7 +73,6 @@ GridView {
             bannerDescSize: datas.bannerDescSize
             bannerDescBottomMargin: datas.bannerDescBottomMargin
             bannerDescLeftMargin: datas.bannerDescLeftMargin
-            isParentFocused: false
             Keys.onReturnPressed: self.clicked(datas.sourceUrl)
         }
     }
