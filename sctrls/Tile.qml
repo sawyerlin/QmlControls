@@ -31,7 +31,7 @@ FocusScope {
         Rectangle {
             anchors.fill: parent
             color: hasBackgroundImage ? "transparent" : "blue"
-            Image {
+            ImageFade {
                 source: background || backgroundDefaultImage
                 anchors.fill: parent
                 fillMode: hasBackgroundImage ? Image.Stretch : Image.PreserveAspectFit

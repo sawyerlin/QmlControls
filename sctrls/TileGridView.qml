@@ -22,11 +22,11 @@ GridView {
     highlightRangeMode: ListView.ApplyRange
     Keys.onPressed: {
         if (event.key == Qt.Key_Up) {
-            if (self.currentIndex == self.columnSize) {
+            if (self.currentIndex >= self.columnSize) {
                 self.preferredHighlightBegin = 0;
             }
         } else if (event.key == Qt.Key_Down) {
-            if (self.currentIndex == self.columnSize) {
+            if (self.currentIndex <= self.columnSize) {
                 self.preferredHighlightBegin = -110;
             }
         }
