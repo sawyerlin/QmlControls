@@ -27,7 +27,7 @@ GridView {
             }
         } else if (event.key == Qt.Key_Down) {
             if (self.currentIndex >= self.columnSize) {
-                self.preferredHighlightBegin = -110;
+                self.preferredHighlightBegin = -125;
             }
         }
     }
