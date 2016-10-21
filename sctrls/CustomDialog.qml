@@ -6,10 +6,12 @@ FocusScope {
     z: -1
     anchors.fill: parent
     Rectangle {
+        id: rect
         anchors.fill: parent
-        color: Qt.rgba(0, 0, 0, 0.7)
     }
-    function show(component) {
+    function show(component, colour) {
+        colour = colour || Qt.rgba(0, 0, 0, 0.7)
+        rect.color = colour;
         self.z = 100;
         self.focus = true;
         self.currentItem = component.createObject(self, {

@@ -75,12 +75,12 @@ FocusScope {
                 }
             }
             onFocusReleased: {
-                var parent = self.parent;
+                var parent = self;
                 while (parent) {
-                    if (!parent.parent.activeFocus) {
+                    parent.focus = true;
+                    if (!parent.activeFocus) {
                         parent = parent.parent;
                     } else {
-                        parent.focus = true;
                         parent = undefined;
                     }
                 }
