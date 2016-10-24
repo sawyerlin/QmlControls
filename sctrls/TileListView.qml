@@ -14,15 +14,15 @@ FocusScope {
     height: itemHeight + header.height
     TileHeader {
         id: header
-        focus: self.focusPlace == "title"
+        focus: self.focusPlace == "title" && !self.model.noTitleFocus
         title: self.model.title
         color: self.model.color || "white"
         Keys.onReturnPressed: self.moreClicked(self.model.originDatas)
-        KeyNavigation.down: list
+        KeyNavigation.down: !self.model.noTitleFocus ? list : null
     }
     ListView {
         id: list
-        focus: self.focusPlace == "list" ? true : false
+        focus: (self.focusPlace == "list" ? true : false) || self.model.noTitleFocus
         model: self.model
         anchors.left: parent.left
         anchors.right: parent.right

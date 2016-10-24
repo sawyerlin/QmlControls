@@ -2,9 +2,9 @@ import QtQuick 2.4
 
 Canvas {
     property string type: "next"
-    property color strokeStyle:  "orange"
+    property color strokeStyle:  "#ffffff"
     property color fillStyle: "#ffffff"
-    property int lineWidth: 3
+    property int lineWidth: 2
     property bool fill: true
     property bool stroke: activeFocus
     property real alpha: 1.0
@@ -27,13 +27,13 @@ Canvas {
         ctx.lineJoin = "round";
         ctx.beginPath();
         switch (type) {
-            case "next":
+            case "right":
             ctx.moveTo(triangle.width, triangle.height / 2);
-            ctx.lineTo(triangle.width / 2, 0);
-            ctx.lineTo(triangle.width / 2, triangle.height);
+            ctx.lineTo(0, 0);
+            ctx.lineTo(0, triangle.height);
             break;
-            case "previous":
-            ctx.moveTo(triangle.width / 2, triangle.height / 2);
+            case "left":
+            ctx.moveTo(0, triangle.height / 2);
             ctx.lineTo(triangle.width, 0);
             ctx.lineTo(triangle.width, triangle.height);
             break;

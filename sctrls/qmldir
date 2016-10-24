@@ -10,6 +10,7 @@ EditButton 1.0 EditButton.qml
 ImageButton 1.0 ImageButton.qml
 ImageFade 1.0 ImageFade.qml
 NavigationContainer 1.0 NavigationContainer.qml
+PlayButton 1.0 PlayButton.qml
 ProfileItem 1.0 ProfileItem.qml
 Tile 1.0 Tile.qml
 TileHeader 1.0 TileHeader.qml
