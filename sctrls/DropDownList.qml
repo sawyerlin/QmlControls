@@ -76,16 +76,14 @@ FocusScope {
             }
             onFocusReleased: {
                 var parent = self;
-                while (parent) {
-                    if (!parent.activeFocus) {
-                        parent.focus = true;
-                        parent = parent.parent;
-                    } else {
-                        self.parent.focus = true;
-                        parent = undefined;
-                    }
-                }
+                restoreFocus(parent);
             }
+        }
+    }
+    function restoreFocus(parent) {
+        if (!parent.activeFocus) {
+            restoreFocus(parent.parent);
+            parent.focus = true;
         }
     }
 }
