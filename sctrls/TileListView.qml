@@ -22,7 +22,7 @@ FocusScope {
     }
     ListView {
         id: list
-        focus: (self.focusPlace == "list" ? true : false) || self.model.noTitleFocus
+        focus: (self.focusPlace == "list" ? true : false) || !!self.model.noTitleFocus
         model: self.model
         anchors.left: parent.left
         anchors.right: parent.right

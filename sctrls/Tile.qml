@@ -40,10 +40,11 @@ FocusScope {
             Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: self.bannerHeight
+                height: !!desc ? self.bannerHeight : titleText.height + (titleText.lineCount > 1 ? 2 : 1) * bannerTitleTopMargin
                 visible: showSubBand
                 color: Qt.rgba(0, 0, 0, 0.6)
                 Text {
+                    id: titleText
                     text: self.title || "title undefined"
                     font.pixelSize: bannerTitleSize
                     anchors.top: parent.top
@@ -52,11 +53,13 @@ FocusScope {
                     anchors.topMargin: bannerTitleTopMargin
                     anchors.leftMargin: bannerTitleLeftMargin
                     anchors.rightMargin: bannerTitleLeftMargin
-                    elide: Text.ElideRight
+                    elide: !!desc ? Text.ElideRight : Text.ElideNone
+                    wrapMode: !!desc ? Text.NoWrap : Text.Wrap
                     font.family: fontBold.name
                     color: "#FFFFFF"
                 }
                 Text {
+                    visible: !!desc
                     text: desc || "desc undefined"
                     font.pixelSize: bannerDescSize
                     anchors.bottom: parent.bottom

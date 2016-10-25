@@ -11,7 +11,7 @@ FocusScope {
 
     id: self
     focus: true
-    width: 321
+    width: 320
     height: 52
     Component.onCompleted: {
         var currentItem = self.model.get(self.currentIndex);
