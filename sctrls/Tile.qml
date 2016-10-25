@@ -40,7 +40,7 @@ FocusScope {
             Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: !!desc ? self.bannerHeight : titleText.height + (titleText.lineCount > 1 ? 2 : 1) * bannerTitleTopMargin
+                height: !!desc ? self.bannerHeight : titleText.height + 2 * bannerTitleTopMargin
                 visible: showSubBand
                 color: Qt.rgba(0, 0, 0, 0.6)
                 Text {
