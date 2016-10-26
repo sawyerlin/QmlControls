@@ -16,7 +16,7 @@ FocusScope {
     Component.onCompleted: {
         var currentItem = self.model.get(self.currentIndex);
         if (currentItem) {
-            self.contentText = currentItem.datas.name;
+            selected(currentItem.datas);
         }
     }
     AnimateFocusScope {
@@ -70,7 +70,7 @@ FocusScope {
             model: self.model 
             onSelected: {
                 if (datas) {
-                    self.contentText = datas.datas.name;
+                    self.model.selectedIndex = datas.index;
                     self.selected(datas.datas);
                 }
             }
@@ -85,5 +85,10 @@ FocusScope {
             restoreFocus(parent.parent);
             parent.focus = true;
         }
+    }
+    function select(index) {
+        var datas = self.model.get(index).datas;
+        self.model.selectedIndex = index;
+        self.selected(datas);
     }
 }

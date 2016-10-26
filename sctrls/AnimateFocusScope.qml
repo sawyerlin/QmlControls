@@ -12,6 +12,7 @@ FocusScope {
 
     id: self
     focus: true
+    z: activeFocus ? 1 : 0
     transform: Scale {
         origin.x: self.xOrigin !== undefined ? self.xOrigin : self.width / 2
         origin.y: self.yOrigin !== undefined ? self.yOrigin : self.height / 2

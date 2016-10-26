@@ -1,10 +1,13 @@
 import QtQuick 2.5
 
+import "."
+
 FocusScope {
     property var titleText: "undefined title"
     property var model: ListModel {}
     property var currentIndex: 0
     property var closeCallback: undefined
+    property var maxWidth: 0
 
     signal selected(var datas)
     signal focusReleased()
@@ -24,9 +27,10 @@ FocusScope {
     ListView {
         id: listView
         focus: true
-        width: 299
-        spacing: 10 
+        spacing: 20
+        width: self.maxWidth + 96 * 2
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: 50
         anchors.top: title.bottom
         anchors.topMargin: 60
         anchors.horizontalCenter: parent.horizontalCenter
@@ -40,14 +44,20 @@ FocusScope {
             anchors.left: parent.left
             anchors.right: parent.right
             Rectangle {
-                anchors.fill: parent
-                color: parent.activeFocus ? "#999999" : "#2B2B2B"
-                Text {
-                    anchors.centerIn: parent
-                    font.pixelSize: 30
-                    font.family: fontNormal.name
-                    color: parent.activeFocus ? "#767676" : "#4A4A4A"
-                    text: datas.name
+                width: self.maxWidth + 96 * 2
+                height: 96
+                focus: parent.activeFocus
+                color: activeFocus ? "#999999" : "#2b2b2b"
+                StyleText {
+                    id: text
+                    anchors.left: parent.left
+                    anchors.leftMargin: 96
+                    anchors.verticalCenter: parent.verticalCenter
+                    onWidthChanged: {
+                        self.maxWidth = Math.max(width, self.maxWidth);
+                        return self.maxWidth;
+                    }
+                    model: datas.name
                 }
             }
             Keys.onPressed: {

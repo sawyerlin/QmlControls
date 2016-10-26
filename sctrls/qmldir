@@ -12,6 +12,7 @@ ImageFade 1.0 ImageFade.qml
 NavigationContainer 1.0 NavigationContainer.qml
 PlayButton 1.0 PlayButton.qml
 ProfileItem 1.0 ProfileItem.qml
+StyleText 1.0 StyleText.qml
 Tile 1.0 Tile.qml
 TileHeader 1.0 TileHeader.qml
 TileListView 1.0 TileListView.qml
