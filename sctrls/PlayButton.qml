@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.5
 
 AnimateFocusScope {
     property var scale: 160 / 112

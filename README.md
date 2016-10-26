@@ -1,3 +1,3 @@
 # QmlControls
 
-qml version 2.4
+qml version 2.5
