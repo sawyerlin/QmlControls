@@ -16,7 +16,7 @@ Row {
                     createString = 'import QtQuick 2.5; Text {text: "' 
                     + modelData.value + '"; font.pixelSize: 30; color: "' + (modelData.color || "white") + '";}';
                 } else {
-                    createString = 'import QtQuick 2.5; Image {source: "../../images/details/' 
+                    createString = 'import QtQuick 2.5; Image {source: "../images/' 
                     + modelData.value + '.png";}';
                 }
                 Qt.createQmlObject(createString, this);
