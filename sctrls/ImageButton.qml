@@ -7,6 +7,7 @@ AnimateFocusScope {
     property var sideFocusSize: 123
     property var focusScale: sideFocusSize / sideSize
     property var mode: ""
+    property var color
 
     id: self
     width: sideSize
@@ -22,7 +23,7 @@ AnimateFocusScope {
     Rectangle {
         id: rect
         anchors.fill: parent
-        color: "#414141"
+        color: self.color || "#414141"
         Image {
             anchors.fill: imageSource && self.mode == "fill" ? parent : null
             anchors.centerIn: parent
