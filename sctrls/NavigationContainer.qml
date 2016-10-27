@@ -3,7 +3,6 @@ import QtQuick 2.5
 FocusScope {
     property var model: undefined 
     property var itemSpacing: 100
-    property var currentIndex: 0
 
     signal pressed(var datas)
 
@@ -21,13 +20,14 @@ FocusScope {
             pixelSize: 40
             pixelFocusSize: 52
             color: isDefault ? "white" : "black"
-            focus: isDefault
             Keys.onReturnPressed: {
                 if (!isDefault) {
                     pressed(datas);
-                    self.model.setProperty(self.currentIndex, "isDefault", false);
+                    if (self.model.defaultIndex > -1) {
+                        self.model.setProperty(self.model.defaultIndex, "isDefault", false);
+                    }
                     self.model.setProperty(index, "isDefault", true);
-                    self.currentIndex = index;
+                    self.model.defaultIndex = index;
                 }
             }
         }
@@ -36,11 +36,11 @@ FocusScope {
             for (var index = 0; index < self.model.count; index ++) {
                 currentModel = self.model.get(index);
                 if (currentModel.isDefault) {
-                    self.currentIndex = index;
+                    self.model.defaultIndex = index;
                     break;
                 }
             }
-            listView.currentIndex = self.currentIndex
+            listView.currentIndex = self.model.defaultIndex;
             pressed(currentModel.datas);
         }
     }
