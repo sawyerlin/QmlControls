@@ -2,6 +2,9 @@ import QtQuick 2.5
 
 FocusScope {
     property var name: null
+    property var color: "#242424"
+
+    id: self
     anchors.fill: parent
     focus: true
     Keys.onPressed: {
@@ -17,7 +20,7 @@ FocusScope {
     }
     Rectangle {
         anchors.fill: parent
-        color: "#242424"
+        color: self.color
     }
     Text {
         id: emptyText
