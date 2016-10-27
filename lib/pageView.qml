@@ -2,7 +2,7 @@ import QtQuick 2.5
 
 FocusScope {
     property var name: null
-    property var color: "#242424"
+    property var color
 
     id: self
     anchors.fill: parent
@@ -20,7 +20,7 @@ FocusScope {
     }
     Rectangle {
         anchors.fill: parent
-        color: self.color
+        color: self.color || "#242424"
     }
     Text {
         id: emptyText
