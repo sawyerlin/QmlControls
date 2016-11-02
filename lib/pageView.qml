@@ -36,6 +36,6 @@ FocusScope {
         }
     }
     function close() {
-        navigation.pop();
+        parent.pop();
     }
 }
