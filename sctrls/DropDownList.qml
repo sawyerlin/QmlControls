@@ -8,6 +8,7 @@ FocusScope {
 
     signal opened(var component)
     signal selected(var datas)
+    signal nameChanged(var datas)
 
     id: self
     focus: true
@@ -16,7 +17,7 @@ FocusScope {
     Component.onCompleted: {
         var currentItem = self.model.get(self.currentIndex);
         if (currentItem) {
-            selected(currentItem.datas);
+            nameChanged(currentItem.datas);
         }
     }
     AnimateFocusScope {
@@ -71,6 +72,7 @@ FocusScope {
             onSelected: {
                 if (datas) {
                     self.model.selectedIndex = datas.index;
+                    self.nameChanged(datas.datas);
                     self.selected(datas.datas);
                 }
             }
@@ -89,6 +91,7 @@ FocusScope {
     function select(index) {
         var datas = self.model.get(index).datas;
         self.model.selectedIndex = index;
+        self.nameChanged(datas.datas);
         self.selected(datas);
     }
 }
