@@ -3,12 +3,13 @@ import QtQuick 2.5
 FocusScope {
     property var name: null
     property var color
+    property var exitEnabled: true
 
     id: self
     anchors.fill: parent
     focus: true
     Keys.onPressed: {
-        if (event.key == Qt.Key_Back || event.key == Qt.Key_Backspace) {
+        if (self.exitEnabled && (event.key == Qt.Key_Back || event.key == Qt.Key_Backspace)) {
             event.accepted = true;
             close();
         }
