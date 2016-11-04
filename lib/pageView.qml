@@ -4,6 +4,7 @@ FocusScope {
     property var name: null
     property var color
     property var exitEnabled: true
+    property var depth: 0
 
     id: self
     anchors.fill: parent
@@ -16,7 +17,7 @@ FocusScope {
     }
     onActiveFocusChanged: {
         if (activeFocus) {
-            console.log(name + " is focused");
+            console.log(name + " is focused, depth: " + self.depth);
         }
     }
     Rectangle {

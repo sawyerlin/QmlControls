@@ -45,6 +45,7 @@ FocusScope {
     }
     function push(item, params, replace) {
         replace = replace || false;
+        var lastDepth = self.currentItem ? self.currentItem.depth : 0;
         if (item) {
             if (replace) {
                 if (self.currentItem) {
@@ -55,6 +56,7 @@ FocusScope {
                 self.items.push(self.currentItem);
             }
             self.currentItem = item.createObject(self, params);
+            self.currentItem.depth = lastDepth + 1;
             self.currentItem.focus = true;
         }
     }
