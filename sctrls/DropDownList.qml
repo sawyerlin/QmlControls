@@ -4,7 +4,7 @@ FocusScope {
     property var model: undefined
     property var labelText: "item"
     property var titleText: "choix d'un item"
-    property var contentText: "undefined"
+    property var contentText
 
     signal opened(var component)
     signal selected(var datas)
@@ -42,7 +42,7 @@ FocusScope {
             font.pixelSize: 30
             font.family: fontNormal.name
             color: "#ffffff"
-            text: self.contentText
+            text: self.contentText || "undefined"
             anchors.left: label.right
         }
     }
