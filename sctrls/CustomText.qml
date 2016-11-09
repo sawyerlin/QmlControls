@@ -1,7 +1,6 @@
 import QtQuick 2.5
 
 AnimateFocusScope {
-    property var fontColor: "#000000"
     property var text: "item"
     property var color: "white"
     property var pixelSize: 32

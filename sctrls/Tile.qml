@@ -45,7 +45,7 @@ FocusScope {
                 color: Qt.rgba(0, 0, 0, 0.6)
                 Text {
                     id: titleText
-                    text: self.title || "title undefined"
+                    text: self.title || ""
                     font.pixelSize: bannerTitleSize
                     anchors.top: parent.top
                     anchors.left: parent.left

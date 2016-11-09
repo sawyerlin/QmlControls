@@ -19,7 +19,7 @@ FocusScope {
             text: name 
             pixelSize: 40
             pixelFocusSize: 52
-            color: isDefault ? "white" : "black"
+            color: isDefault ? "white" : "#ff6600"
             Keys.onReturnPressed: {
                 if (!isDefault) {
                     pressed(datas);
