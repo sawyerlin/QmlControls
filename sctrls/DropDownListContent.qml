@@ -6,7 +6,7 @@ FocusScope {
     property var titleText: "undefined title"
     property var model: ListModel {}
     property var currentIndex: 0
-    property var closeCallback: undefined
+    property var closeCallback
     property var maxWidth: 0
 
     signal selected(var datas)
@@ -58,6 +58,14 @@ FocusScope {
                         return self.maxWidth;
                     }
                     model: datas.name
+                }
+                CustomProgressBar {
+                    id: progressBar
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    value: datas.progressValue
+                    visibleHeight: 5
                 }
             }
             Keys.onPressed: {

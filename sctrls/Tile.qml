@@ -1,10 +1,10 @@
 import QtQuick 2.5
 
 FocusScope {
-    property var title: undefined
-    property var desc: undefined
-    property var background: undefined
-    property var progressValue: undefined
+    property var title
+    property var desc
+    property var background
+    property var progressValue
     property var widthFocus: 434
     property var heightFocus: 270
     property var isParentFocused: false
