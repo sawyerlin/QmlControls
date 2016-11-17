@@ -5,6 +5,7 @@ FocusScope {
     property var color
     property var exitEnabled: true
     property var depth: 0
+    property bool isFocusable: true
 
     id: self
     anchors.fill: parent
