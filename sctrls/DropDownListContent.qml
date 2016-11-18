@@ -3,10 +3,10 @@ import QtQuick 2.5
 import "."
 
 FocusScope {
-    property var titleText: "undefined title"
-    property var model: ListModel {}
-    property var currentIndex: 0
+    property var text
+    property var currentIndex
     property var closeCallback
+    property var model
     property var maxWidth: 0
 
     signal selected(var datas)
@@ -19,14 +19,13 @@ FocusScope {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 50
-        text: titleText
+        text: self.text
         color: "white"
         font.pixelSize: 50
         font.family: fontNormal.name
     }
     ListView {
         id: listView
-        focus: true
         spacing: 20
         width: self.maxWidth + 96 * 2
         anchors.bottom: parent.bottom
@@ -64,7 +63,12 @@ FocusScope {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.bottom: parent.bottom
-                    value: datas.progressValue
+                    value: {
+                        if (bookmarks) {
+                            var bookmark = bookmarks[datas.originData.id];
+                            return bookmark ? bookmark.position : 0;
+                        }
+                    }
                     visibleHeight: 5
                 }
             }
@@ -80,8 +84,7 @@ FocusScope {
                         self.closeCallback();
                     }
                     break;
-                    case Qt.Key_Back:
-                    case Qt.Key_Backspace:
+                    case Qt.Key_Escape:
                     self.focusReleased();
                     if (self.closeCallback) {
                         self.closeCallback();
@@ -91,6 +94,9 @@ FocusScope {
                 }
             }
         }
-        Component.onCompleted: positionViewAtIndex(self.currentIndex, ListView.Beginning)
+        Component.onCompleted: {
+            positionViewAtIndex(self.currentIndex, ListView.Beginning);
+            listView.focus = true;
+        }
     }
 }

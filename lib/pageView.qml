@@ -3,16 +3,15 @@ import QtQuick 2.5
 FocusScope {
     property var name: null
     property var color
-    property var exitEnabled: true
+    property var escapeEnabled: true
     property var depth: 0
     property bool isFocusable: true
 
     id: self
     anchors.fill: parent
     focus: true
-    Keys.onPressed: {
-        if (self.exitEnabled && (event.key == Qt.Key_Back || event.key == Qt.Key_Backspace)) {
-            event.accepted = true;
+    Keys.onEscapePressed: {
+        if (self.escapeEnabled) {
             close();
         }
     }

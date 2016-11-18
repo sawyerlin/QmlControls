@@ -1,10 +1,10 @@
 import QtQuick 2.5
 
 FocusScope {
-    property var model: undefined
+    property var model
+    property var contentText
     property var labelText: "item"
     property var titleText: "choix d'un item"
-    property var contentText
 
     signal opened(var component)
     signal selected(var datas)
@@ -15,7 +15,7 @@ FocusScope {
     width: 320
     height: 52
     Component.onCompleted: {
-        var currentItem = self.model.get(self.currentIndex);
+        var currentItem = self.model.get(self.model ? self.model.selectedIndex : 0);
         if (currentItem) {
             nameChanged(currentItem.datas);
         }
@@ -66,7 +66,7 @@ FocusScope {
         id: dropdownlist
         DropDownListContent {
             anchors.fill: parent
-            titleText: self.titleText
+            text: self.titleText
             currentIndex: self.model ? self.model.selectedIndex : 0
             model: self.model 
             onSelected: {
