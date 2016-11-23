@@ -91,7 +91,7 @@ FocusScope {
     function select(index) {
         var datas = self.model.get(index).datas;
         self.model.selectedIndex = index;
-        self.nameChanged(datas.datas);
+        self.nameChanged(datas);
         self.selected(datas);
     }
 }

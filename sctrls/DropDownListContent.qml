@@ -4,7 +4,7 @@ import "."
 
 FocusScope {
     property var text
-    property var currentIndex
+    property int currentIndex
     property var closeCallback
     property var model
     property var maxWidth: 0
@@ -64,9 +64,27 @@ FocusScope {
                     anchors.right: parent.right
                     anchors.bottom: parent.bottom
                     value: {
-                        if (bookmarks) {
-                            var bookmark = bookmarks[datas.originData.id];
-                            return bookmark ? bookmark.position : 0;
+                        if (typeof bookmarks !== 'undefined') {
+                            if (datas.originData.episodes) {
+                                for (var index in datas.originData.episodes) {
+                                    var lastIndex = datas.originData.episodes.length - index - 1,
+                                        episode = datas.originData.episodes[lastIndex];
+                                    for (var idx in bookmarks) {
+                                        var bookmark = bookmarks[idx];
+                                        if (bookmark.id == episode.id && bookmark.creator == "player" && bookmark.position > 90) {
+                                            return Math.ceil(lastIndex / (datas.originData.episodes.length - 1) * 100);
+                                        }
+                                    }
+                                }
+                                return 0;
+                            } else {
+                                for (var index in bookmarks) {
+                                    var bookmark = bookmarks[index];
+                                    if (bookmark.id == datas.originData.id && bookmark.creator == "player") {
+                                        return bookmark.position > 90 ? 100 : bookmark.position;
+                                    }
+                                }
+                            }
                         }
                     }
                     visibleHeight: 5
