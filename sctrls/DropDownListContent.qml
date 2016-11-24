@@ -68,21 +68,17 @@ FocusScope {
                             if (datas.originData.episodes) {
                                 for (var index in datas.originData.episodes) {
                                     var lastIndex = datas.originData.episodes.length - index - 1,
-                                        episode = datas.originData.episodes[lastIndex];
-                                    for (var idx in bookmarks) {
-                                        var bookmark = bookmarks[idx];
-                                        if (bookmark.id == episode.id && bookmark.creator == "player" && bookmark.position > 90) {
-                                            return Math.ceil(lastIndex / (datas.originData.episodes.length - 1) * 100);
-                                        }
+                                        episode = datas.originData.episodes[lastIndex],
+                                        bookmark = getBookmark(episode.id, "player");
+                                    if (bookmark && bookmark.position > 90) {
+                                        return Math.ceil(lastIndex / (datas.originData.episodes.length - 1) * 100);
                                     }
                                 }
                                 return 0;
                             } else {
-                                for (var index in bookmarks) {
-                                    var bookmark = bookmarks[index];
-                                    if (bookmark.id == datas.originData.id && bookmark.creator == "player") {
-                                        return bookmark.position > 90 ? 100 : bookmark.position;
-                                    }
+                                var bookmark = getBookmark(datas.originData.id, "player"); 
+                                if (bookmark) {
+                                    return bookmark.position > 90 ? 100 : bookmark.position;
                                 }
                             }
                         }
