@@ -98,6 +98,7 @@ FocusScope {
                         self.closeCallback();
                     }
                     break;
+                    case Qt.Key_Back:
                     case Qt.Key_Escape:
                     self.focusReleased();
                     if (self.closeCallback) {
