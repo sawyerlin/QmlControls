@@ -1,10 +1,13 @@
 import QtQuick 2.5
 
 FocusScope {
-    property var model: undefined
+    property var model
     property var itemSpacing: 20
     property var itemHeight: 192
     property var focusPlace: "title"
+    property bool headerShown: true
+    property int displayMarginBeginning: 0
+    property int rightMargin: 0
 
     signal moreClicked(var datas)
     signal clicked(var sourceUrl)
@@ -14,6 +17,7 @@ FocusScope {
     height: itemHeight + header.height
     TileHeader {
         id: header
+        visible: headerShown
         focus: self.focusPlace == "title" && !self.model.noTitleFocus
         title: self.model.title
         color: self.model.color || "white"
@@ -32,6 +36,8 @@ FocusScope {
         layoutDirection: Qt.LeftToRight
         highlightMoveDuration: 100
         displayMarginEnd: 50
+        displayMarginBeginning: self.displayMarginBeginning
+        anchors.rightMargin: self.rightMargin
         delegate: Tile {
             width: datas.width
             height: {
