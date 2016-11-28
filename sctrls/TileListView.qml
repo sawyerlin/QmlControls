@@ -34,7 +34,7 @@ FocusScope {
         spacing: itemSpacing
         orientation: ListView.Horizontal
         layoutDirection: Qt.LeftToRight
-        highlightMoveDuration: 100
+        highlightMoveDuration: 300
         displayMarginEnd: 50
         displayMarginBeginning: self.displayMarginBeginning
         anchors.rightMargin: self.rightMargin

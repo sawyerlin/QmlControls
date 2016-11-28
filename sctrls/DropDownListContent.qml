@@ -35,7 +35,7 @@ FocusScope {
         anchors.horizontalCenter: parent.horizontalCenter
         model: self.model
         currentIndex: self.currentIndex
-        highlightMoveDuration: 100
+        highlightMoveDuration: 300
         delegate: AnimateFocusScope {
             height: 83
             xScale: 382 / 299

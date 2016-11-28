@@ -11,7 +11,7 @@ FocusScope {
         id: listView
         focus: true
         anchors.fill: parent
-        highlightMoveDuration: 100
+        highlightMoveDuration: 300
         spacing: itemSpacing
         orientation: ListView.Horizontal
         model: self.model

@@ -20,15 +20,16 @@ GridView {
     preferredHighlightBegin: 0
     preferredHighlightEnd: self.height - self.itemHeight
     highlightRangeMode: ListView.ApplyRange
+    highlightMoveDuration: 300
     Keys.onPressed: {
         if (event.key == Qt.Key_Up || event.key == Qt.Key_Left) {
-            //if (self.currentIndex <= self.columnSize) {
+            if (currentIndex / 4 < 2) {
                 self.preferredHighlightBegin = 0;
-            //}
+            } else {
+                self.preferredHighlightBegin = -127;
+            }
         } else if (event.key == Qt.Key_Down || event.key == Qt.Key_Right) {
-            //if (self.currentIndex >= self.columnSize) {
-                self.preferredHighlightBegin = -125;
-            //}
+            self.preferredHighlightBegin = -125;
             if (event.key == Qt.Key_Down) {
                 if (Math.floor(currentIndex / self.columnSize) + 1 == Math.floor(self.model.count / self.columnSize)
                 && self.model.count % columnSize != 0

@@ -14,7 +14,7 @@ PageView {
         anchors.right: parent.right
         anchors.rightMargin: 100
         anchors.verticalCenter: parent.verticalCenter
-        highlightMoveDuration: 100
+        highlightMoveDuration: 300
         orientation: ListView.Horizontal
         model: ProfileSelectorModel {}
         delegate: ProfileItem {
