@@ -15,9 +15,11 @@ FocusScope {
     }
     Text {
         visible: profile.id != undefined
+        width: avatarView.width
+        elide: Text.ElideRight
         anchors.top: avatarView.bottom
         anchors.topMargin: 30
-        anchors.horizontalCenter: parent.horizontalCenter
+        horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 30
         color: "white"
         font.family: self.activeFocus ? fontBold.name : fontNormal.name
