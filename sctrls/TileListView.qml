@@ -8,6 +8,7 @@ FocusScope {
     property bool headerShown: true
     property int displayMarginBeginning: 0
     property int rightMargin: 0
+    property int cacheBuffer: 0
 
     signal moreClicked(var datas)
     signal clicked(var sourceUrl)
@@ -26,6 +27,7 @@ FocusScope {
     }
     ListView {
         id: list
+        cacheBuffer: self.cacheBuffer
         focus: (self.focusPlace == "list" ? true : false) || !!self.model.noTitleFocus
         model: self.model
         anchors.left: parent.left
