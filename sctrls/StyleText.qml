@@ -13,12 +13,13 @@ Row {
             Component.onCompleted: {
                 var createString = "";
                 if (modelData.type == "text") {
-                    createString = 'import QtQuick 2.5; Text {text: "' 
-                    + modelData.value + '"; font.pixelSize: 30; color: "' + (modelData.color || "white") + '";}';
+                    createString = 'import QtQuick 2.5; Text {text: \'' 
+                    + modelData.value + '\'; font.pixelSize: 30; color: "' + (modelData.color || "white") + '";}';
                 } else {
                     createString = 'import QtQuick 2.5; Image {source: "../images/' 
                     + modelData.value + '.png";}';
                 }
+                console.log(createString);
                 Qt.createQmlObject(createString, this);
             }
         }
