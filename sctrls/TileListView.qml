@@ -18,7 +18,7 @@ FocusScope {
     height: itemHeight + header.height
     TileHeader {
         id: header
-        visible: headerShown && self.model.count > 0
+        visible: headerShown && (self.model.count > 0 || self.model.emptyMessage != undefined)
         focus: self.focusPlace == "title" && !self.model.noTitleFocus
         title: self.model.title
         color: self.model.color || "white"
