@@ -16,6 +16,7 @@ GridView {
     anchors.fill: parent
     cellWidth: self.width / self.columnSize
     cellHeight: self.itemHeight + 20
+    anchors.bottomMargin: 50
     displayMarginBeginning: itemHeight * 2
     preferredHighlightBegin: 0
     preferredHighlightEnd: self.height - self.itemHeight
