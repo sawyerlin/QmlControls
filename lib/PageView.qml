@@ -6,6 +6,7 @@ FocusScope {
     property var depth: 0
     property bool escapeEnabled: true
     property bool isFocusable: true
+    property bool isReloadable: false
 
     id: self
     anchors.fill: parent
