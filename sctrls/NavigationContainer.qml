@@ -21,14 +21,15 @@ FocusScope {
             pixelFocusSize: 52
             color: isDefault ? "white" : "#999999"
             Keys.onReturnPressed: {
-                if (!isDefault) {
+                // comment if to fix the ticket: FV-98
+                //if (!isDefault) {
                     pressed(datas);
                     if (self.model.defaultIndex > -1) {
                         self.model.setProperty(self.model.defaultIndex, "isDefault", false);
                     }
                     self.model.setProperty(index, "isDefault", true);
                     self.model.defaultIndex = index;
-                }
+                //}
             }
         }
         Component.onCompleted: {
