@@ -74,7 +74,7 @@ FocusScope {
         Text {
             color: "white"
             font.family: fontNormal.name
-            font.pixelSize: 25
+            font.pixelSize: 55
             text: self.model.emptyMessage || ""
         }
     }
