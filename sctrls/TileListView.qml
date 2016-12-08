@@ -74,7 +74,7 @@ FocusScope {
         Text {
             color: "white"
             font.family: fontNormal.name
-            font.pixelSize: 40
+            font.pixelSize: 30
             wrapMode: Text.Wrap
             width: parent.width
             text: self.model.emptyMessage || ""
