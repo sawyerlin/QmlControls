@@ -7,6 +7,7 @@ FocusScope {
     property bool escapeEnabled: true
     property bool isFocusable: true
     property bool isReloadable: false
+    property bool existedEnabled: false
 
     id: self
     anchors.fill: parent
