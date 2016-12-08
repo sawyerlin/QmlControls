@@ -47,13 +47,13 @@ FocusScope {
         replace = replace || false;
         var lastDepth = self.currentItem ? self.currentItem.depth : 0;
         if (item) {
-            if (replace) {
-                if (self.currentItem) {
+            if (self.currentItem) {
+                if (replace) {
                     self.currentItem.destroy();
+                } else {
+                    self.currentItem.visible = false;
+                    self.items.push(self.currentItem);
                 }
-            } else {
-                self.currentItem.visible = false;
-                self.items.push(self.currentItem);
             }
             self.currentItem = item.createObject(self, params);
             self.currentItem.depth = lastDepth + 1;
