@@ -6,11 +6,20 @@ FocusScope {
     property var currentItem: undefined
     property int depth: 0
     property bool busy: false
+    property var pushJobs: []
 
     property var items: []
     Component.onCompleted: {
         if (self.initialItem) {
             self.currentItem = self.initialItem.createObject(self, {});
+        }
+    }
+    onBusyChanged: {
+        if (!self.busy) {
+            var pushJob = self.pushJobs.pop();
+            if (pushJob) {
+                self.deferredPush(pushJob.item, pushJob.params, pushJob.replace);
+            }
         }
     }
     function clear() {
@@ -44,8 +53,19 @@ FocusScope {
         }
     }
     function push(item, params, replace) {
+        if (self.busy) {
+            self.pushJobs.push({
+                item: item,
+                params: params,
+                replace: replace
+            });
+        } else {
+            self.deferredPush(item, params, replace);
+        }
+    }
+    function deferredPush(item, params, replace) {
+        self.busy = true;
         replace = replace || false;
-        var lastDepth = self.currentItem ? self.currentItem.depth : 0;
         if (item) {
             if (self.currentItem) {
                 if (replace) {
@@ -55,9 +75,11 @@ FocusScope {
                     self.items.push(self.currentItem);
                 }
             }
+            var lastDepth = self.currentItem ? self.currentItem.depth : 0;
             self.currentItem = item.createObject(self, params);
             self.currentItem.depth = lastDepth + 1;
             self.currentItem.focus = true;
         }
+        self.busy = false;
     }
 }
