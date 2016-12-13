@@ -32,8 +32,8 @@ FocusScope {
     function get(index, dontLoad) {
         dontLoad = dontLoad || false;
     }
-    function pop(item) {
-        if (!item) {
+    function pop(name) {
+        if (!name) {
             if (self.items.length > 0) {
                 self.currentItem.destroy();
                 self.currentItem = self.items.pop();
@@ -41,11 +41,13 @@ FocusScope {
                 self.currentItem.visible = true;
             }
         } else {
-            for(var i = 1; i < self.items.length; i++) {
-                self.currentItem.destroy();
-                self.currentItem = self.items.pop();
-                if (item.id === self.items[index].id) {
+            for (var index = self.items.length - 1; index >= 0; index--) {
+                if (name === self.items[index].name) {
+                    self.currentItem = self.items.pop();
                     break;
+                } else {
+                    self.currentItem.destroy();
+                    self.currentItem = self.items.pop();
                 }
             }
             self.currentItem.focus = true;
