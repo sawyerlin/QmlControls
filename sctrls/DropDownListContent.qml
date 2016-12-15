@@ -70,8 +70,8 @@ FocusScope {
                                     var lastIndex = datas.originData.episodes.length - index - 1,
                                         episode = datas.originData.episodes[lastIndex],
                                         bookmark = getBookmark(episode.id, "player");
-                                    if (bookmark && bookmark.position > 90) {
-                                        return Math.ceil(lastIndex / (datas.originData.episodes.length - 1) * 100);
+                                    if (bookmark && bookmark.position >= 90) {
+                                        return Math.ceil((lastIndex + 1) / datas.originData.episodes.length * 100);
                                     }
                                 }
                                 return 0;
