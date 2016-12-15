@@ -10,7 +10,7 @@ GridView {
     property var preferredBegin: self.itemHeight
     property var preferredEnd: self.itemHeight * 2
 
-    signal clicked(var sourceUrl)
+    signal clicked(int index)
     
     id: self 
     anchors.fill: parent
@@ -84,7 +84,7 @@ GridView {
             bannerDescSize: datas.bannerDescSize
             bannerDescBottomMargin: datas.bannerDescBottomMargin
             bannerDescLeftMargin: datas.bannerDescLeftMargin
-            Keys.onReturnPressed: self.clicked(datas.sourceUrl)
+            Keys.onReturnPressed: self.clicked(index)
         }
     }
 }

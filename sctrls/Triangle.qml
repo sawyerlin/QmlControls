@@ -6,7 +6,8 @@ Canvas {
     property color fillStyle: "#ffffff"
     property int lineWidth: 2
     property bool fill: true
-    property bool stroke: activeFocus
+    property bool stroke: false
+    property bool close: true
     property real alpha: 1.0
 
     signal clicked()
@@ -30,22 +31,36 @@ Canvas {
             case "right":
             ctx.moveTo(triangle.width, triangle.height / 2);
             ctx.lineTo(0, 0);
+            ctx.moveTo(triangle.width, triangle.height / 2);
             ctx.lineTo(0, triangle.height);
+            if (close) {
+                ctx.moveTo(0, triangle.height);
+                ctx.lineTo(0, 0);
+            }
             break;
             case "left":
             ctx.moveTo(0, triangle.height / 2);
             ctx.lineTo(triangle.width, 0);
+            ctx.moveTo(0, triangle.height / 2);
             ctx.lineTo(triangle.width, triangle.height);
+            if (close) {
+                ctx.moveTo(triangle.width, triangle.height);
+                ctx.lineTo(triangle.width, 0);
+            }
             break;
             case "down":
             ctx.moveTo(triangle.width / 2, triangle.height);
             ctx.lineTo(triangle.width, 0);
+            ctx.moveTo(triangle.width / 2, triangle.height);
             ctx.lineTo(0, 0);
+            if (close) {
+                ctx.moveTo(0, 0);
+                ctx.lineTo(triangle.width, 0);
+            }
             break;
         }
-        ctx.closePath();
-        if (triangle.fill) {ctx.fill();}
-        if (triangle.stroke) {ctx.stroke();}
+        if (triangle.fill) { ctx.fill(); }
+        if (triangle.stroke) { ctx.stroke(); }
         ctx.restore();
     }
 }
