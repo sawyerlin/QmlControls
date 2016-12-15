@@ -66,6 +66,8 @@ GridView {
                 }
             }
             title: datas.title
+            highRightIcon: datas.highRightIcon
+            highLeftIcon: datas.highLeftIcon
             anchors.right: parent.right
             anchors.rightMargin: (index % columnSize + 1) * (cellWidth - itemWidth) - index % columnSize * widthSpacing 
             anchors.top: parent.top

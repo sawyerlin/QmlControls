@@ -3,6 +3,8 @@ import QtQuick 2.5
 FocusScope {
     property var title
     property var desc
+    property var highLeftIcon
+    property var highRightIcon
     property var background
     property var progressValue
     property var widthFocus: 434
@@ -36,6 +38,24 @@ FocusScope {
                 anchors.fill: parent
                 fillMode: hasBackgroundImage ? Image.Stretch : Image.PreserveAspectFit
                 anchors.centerIn: parent
+                Image {
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    width: 70
+                    height: 70
+                    visible: self.highRightIcon != undefined
+                    source: self.highRightIcon ? "../images/" + self.highRightIcon : ""
+                }
+                Image {
+                    anchors.top: parent.top
+                    anchors.topMargin: 20
+                    anchors.left: parent.left
+                    anchors.leftMargin: 20
+                    //width: 70
+                    //height: 70
+                    visible: self.highLeftIcon != undefined
+                    source: self.highLeftIcon ? "../images/" + self.highLeftIcon : ""
+                }
             }
             Rectangle {
                 anchors.left: parent.left

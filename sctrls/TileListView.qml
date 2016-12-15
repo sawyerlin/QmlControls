@@ -50,6 +50,8 @@ FocusScope {
             }
             title: datas.title
             desc: datas.desc
+            highRightIcon: datas.highRightIcon
+            highLeftIcon: datas.highLeftIcon
             widthFocus: datas.widthFocus
             heightFocus: datas.heightFocus
             background: datas.background
