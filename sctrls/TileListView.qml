@@ -11,7 +11,7 @@ FocusScope {
     property int cacheBuffer: 0
 
     signal moreClicked(var datas)
-    signal clicked(int index)
+    signal clicked(int index, string title)
 
     id: self
     focus: true
@@ -64,7 +64,7 @@ FocusScope {
             bannerDescBottomMargin: datas.bannerDescBottomMargin
             bannerDescLeftMargin: datas.bannerDescLeftMargin
             isParentFocused: self.activeFocus
-            Keys.onReturnPressed: self.clicked(index)
+            Keys.onReturnPressed: self.clicked(index, datas.title)
         }
     }
     Item {
