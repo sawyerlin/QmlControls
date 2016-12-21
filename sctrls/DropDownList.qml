@@ -50,6 +50,7 @@ FocusScope {
         type: "down"
         width: 15
         height: 8
+        stroke: true
         anchors.right: self.right
         anchors.bottom: self.bottom
         anchors.bottomMargin: 30

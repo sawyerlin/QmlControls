@@ -50,13 +50,8 @@ Canvas {
             break;
             case "down":
             ctx.moveTo(triangle.width / 2, triangle.height);
-            ctx.lineTo(triangle.width, 0);
-            ctx.moveTo(triangle.width / 2, triangle.height);
             ctx.lineTo(0, 0);
-            if (close) {
-                ctx.moveTo(0, 0);
-                ctx.lineTo(triangle.width, 0);
-            }
+            ctx.lineTo(triangle.width, 0);
             break;
         }
         if (triangle.fill) { ctx.fill(); }
