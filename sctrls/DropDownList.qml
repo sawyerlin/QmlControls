@@ -2,6 +2,7 @@ import QtQuick 2.5
 
 FocusScope {
     property var model
+    property bool focusable: model.count > 1
     property var contentText
     property var labelText: "item"
     property var titleText: "choix d'un item"
@@ -50,10 +51,10 @@ FocusScope {
         type: "down"
         width: 15
         height: 8
-        stroke: true
         anchors.right: self.right
         anchors.bottom: self.bottom
         anchors.bottomMargin: 30
+        visible: self.focusable
     }
     Rectangle {
         anchors.bottom: self.bottom
