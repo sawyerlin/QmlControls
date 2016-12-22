@@ -2,6 +2,9 @@ import QtQuick 2.5
 
 AnimateFocusScope {
     property var scale: 160 / 112
+    property var triangleWidth: 49
+    property var triangleHeight: 57
+
     id: self
     width: 112
     height: 112
@@ -16,13 +19,9 @@ AnimateFocusScope {
             type: "right"
             fill: false
             stroke: true
-            width: 49
-            height: 57
+            width: self.triangleWidth
+            height: self.triangleHeight
             anchors.centerIn: parent
-            //anchors.top: parent.top
-            //anchors.topMargin: 40
-            //anchors.left: parent.left
-            //anchors.leftMargin: 47
         }
     }
 }

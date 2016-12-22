@@ -6,20 +6,21 @@ FocusScope {
     property var highLeftIcon
     property var highRightIcon
     property var background
-    property var progressValue
-    property var widthFocus: 434
-    property var heightFocus: 270
-    property var isParentFocused: false
     property var backgroundDefaultImage: "../images/Image-50.png"
-    property var hasBackgroundImage: background != undefined && background != backgroundDefaultImage
-    property var bannerHeight: 84
-    property var bannerTitleSize: 30
-    property var bannerTitleTopMargin: 18
-    property var bannerTitleLeftMargin: 21
-    property var bannerDescSize: 20
-    property var bannerDescBottomMargin: 15
-    property var bannerDescLeftMargin: 21
-    property var showSubBand: true
+    property var progressValue
+    property int widthFocus: 434
+    property int heightFocus: 270
+    property int bannerHeight: 84
+    property int bannerTitleSize: 30
+    property int bannerTitleTopMargin: 18
+    property int bannerTitleLeftMargin: 21
+    property int bannerDescSize: 20
+    property int bannerDescBottomMargin: 15
+    property int bannerDescLeftMargin: 21
+    property bool showSubBand: true
+    property bool autoPlay: false
+    property bool isParentFocused: false
+    property bool hasBackgroundImage: background != undefined && background != backgroundDefaultImage
 
     id: self
     focus: true
@@ -56,6 +57,15 @@ FocusScope {
                     visible: self.highLeftIcon != undefined
                     source: self.highLeftIcon ? "../images/" + self.highLeftIcon : ""
                 }
+            }
+            PlayButton {
+                id: playButton
+                visible: autoPlay
+                anchors.centerIn: parent
+                width: 50
+                height: 50
+                triangleWidth: 22
+                triangleHeight: 28
             }
             Rectangle {
                 anchors.left: parent.left

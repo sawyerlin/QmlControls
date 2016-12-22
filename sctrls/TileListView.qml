@@ -48,6 +48,7 @@ FocusScope {
                 }
                 return datas.height;
             }
+            autoPlay: !!datas.autoPlay
             title: datas.title
             desc: datas.desc
             highRightIcon: datas.highRightIcon
