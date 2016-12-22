@@ -22,14 +22,14 @@ FocusScope {
             color: isDefault ? "white" : "#999999"
             Keys.onReturnPressed: {
                 // comment if to fix the ticket: FV-98
-                //if (!isDefault) {
-                    pressed(datas);
-                    if (self.model.defaultIndex > -1) {
-                        self.model.setProperty(self.model.defaultIndex, "isDefault", false);
-                    }
-                    self.model.setProperty(index, "isDefault", true);
-                    self.model.defaultIndex = index;
-                //}
+                // if (!isDefault) {
+                pressed(datas);
+                if (self.model.defaultIndex > -1) {
+                    self.model.setProperty(self.model.defaultIndex, "isDefault", false);
+                }
+                self.model.setProperty(index, "isDefault", true);
+                self.model.defaultIndex = index;
+                // }
             }
         }
         Component.onCompleted: {
@@ -44,5 +44,9 @@ FocusScope {
             listView.currentIndex = self.model.defaultIndex;
             pressed(currentModel.datas);
         }
+    }
+    function reset() {
+        self.focus = true;
+        listView.currentIndex = self.model.defaultIndex;
     }
 }

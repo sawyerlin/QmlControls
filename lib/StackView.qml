@@ -42,12 +42,11 @@ FocusScope {
             }
         } else {
             for (var index = self.items.length - 1; index >= 0; index--) {
-                if (name === self.items[index].name) {
-                    self.currentItem = self.items.pop();
-                    break;
-                } else {
+                if (self.currentItem.name !== name) {
                     self.currentItem.destroy();
                     self.currentItem = self.items.pop();
+                } else {
+                    break;
                 }
             }
             self.currentItem.focus = true;
