@@ -10,7 +10,7 @@ FocusScope {
         anchors.fill: parent
     }
     function show(component, colour) {
-        colour = colour || Qt.rgba(0, 0, 0, 0.7)
+        colour = colour || Qt.rgba(0, 0, 0, 0.5)
         rect.color = colour;
         self.z = 100;
         self.focus = true;
