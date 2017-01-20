@@ -15,10 +15,15 @@ FocusScope {
     focus: true
     width: 320
     height: 52
-    Component.onCompleted: {
-        var currentItem = self.model.get(self.model ? self.model.selectedIndex : 0);
-        if (currentItem) {
-            nameChanged(currentItem.datas);
+    Connections {
+        target: model
+        onCountChanged: {
+            if (self.model.selectedIndex === self.model.count - 1) {
+                var currentItem = self.model.get(self.model ? self.model.selectedIndex : 0);
+                if (currentItem) {
+                    nameChanged(currentItem.datas);
+                }
+            }
         }
     }
     AnimateFocusScope {
