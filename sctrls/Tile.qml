@@ -28,7 +28,7 @@ FocusScope {
     AnimateFocusScope {
         focus: true
         xScale: widthFocus / width
-        yScale: heightFocus /height
+        yScale: heightFocus / height
         onXStopped: rectCover.visible = isParentFocused || self.activeFocus
         anchors.fill: parent
         Rectangle {
@@ -52,8 +52,6 @@ FocusScope {
                     anchors.topMargin: 20
                     anchors.left: parent.left
                     anchors.leftMargin: 20
-                    //width: 70
-                    //height: 70
                     visible: self.highLeftIcon != undefined
                     source: self.highLeftIcon ? "../images/" + self.highLeftIcon : ""
                 }
@@ -118,6 +116,13 @@ FocusScope {
             color: Qt.rgba(0, 0, 0, 0.5)
             width: parent.width
             height: parent.height
+        }
+        Rectangle {
+            visible: self.activeFocus
+            border.width: 3
+            border.color: "#d3631f"
+            anchors.fill: parent
+            color: "transparent"
         }
     }
 }
