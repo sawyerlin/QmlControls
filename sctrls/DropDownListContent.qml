@@ -85,6 +85,13 @@ FocusScope {
                     }
                     visibleHeight: 5
                 }
+                Rectangle {
+                    anchors.fill: parent
+                    border.width: 3
+                    border.color: "#d3631f"
+                    visible: parent.activeFocus
+                    color: "transparent"
+                }
             }
             Keys.onPressed: {
                 switch(event.key) {

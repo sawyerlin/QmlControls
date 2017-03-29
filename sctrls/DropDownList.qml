@@ -60,13 +60,14 @@ FocusScope {
         anchors.bottom: self.bottom
         anchors.bottomMargin: 30
         visible: self.focusable
+        isFocus: self.activeFocus
     }
     Rectangle {
         anchors.bottom: self.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         height: 2
-        color: "#3F3F3F"
+        color: self.activeFocus ? "#d3631f" : "#3F3F3F"
     }
     Keys.onReturnPressed: opened(dropdownlist)
     Component {

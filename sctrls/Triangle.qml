@@ -8,6 +8,7 @@ Canvas {
     property bool fill: true
     property bool stroke: false
     property bool close: true
+    property bool isFocus: false
     property real alpha: 1.0
 
     signal clicked()
@@ -15,8 +16,18 @@ Canvas {
     id: triangle
     antialiasing: true
     onLineWidthChanged: requestPaint()
-    onFillChanged:requestPaint();
-    onStrokeChanged:requestPaint();
+    onFillChanged: requestPaint()
+    onStrokeChanged: requestPaint()
+    onIsFocusChanged: {
+        if (triangle.isFocus) {
+            triangle.fillStyle = "#d3631f";
+            triangle.strokeStyle = "#d3631f";
+        } else {
+            triangle.fillStyle = "#ffffff";
+            triangle.strokeStyle = "#ffffff";
+        }
+        requestPaint();
+    }
     onPaint: {
         var ctx = getContext("2d");
         ctx.save();
