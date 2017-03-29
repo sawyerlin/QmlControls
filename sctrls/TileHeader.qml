@@ -26,16 +26,14 @@ FocusScope {
             font.family: fontNormal.name
             font.pixelSize: fontSize
         }
-        Image {
-            id: imagex
+        Rectangle {
             visible: self.activeFocus
-            anchors.left: text.right
-            anchors.leftMargin: 20
-            anchors.verticalCenter: parent.verticalCenter
-            fillMode: Image.Stretch
-            width: 24
-            height: 17
-            source: "../images/ArrowRight.png"
+            anchors.top: text.bottom
+            anchors.topMargin: 5
+            anchors.left: text.left
+            anchors.right: text.right
+            height: 3
+            color: "#d3631f"
         }
     }
 }

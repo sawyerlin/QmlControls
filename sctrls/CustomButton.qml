@@ -41,4 +41,11 @@ AnimateFocusScope {
             source: self.imageSource || ""
         }
     }
+    Rectangle {
+        anchors.fill: parent
+        border.width: 3
+        border.color: "#d3631f"
+        visible: self.activeFocus
+        color: "transparent"
+    }
 }

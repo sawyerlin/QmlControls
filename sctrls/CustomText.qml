@@ -19,4 +19,13 @@ AnimateFocusScope {
         font.family: fontNormal.name
         text: self.text
     }
+    Rectangle {
+        visible: self.activeFocus
+        anchors.top: textView.bottom
+        anchors.topMargin: 5
+        anchors.left: textView.left
+        anchors.right: textView.right
+        height: 3
+        color: "#d3631f"
+    }
 }

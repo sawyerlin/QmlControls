@@ -22,4 +22,11 @@ AnimateFocusScope {
         anchors.centerIn: parent
         source: self.isEmpty ? "../images/Add.png" : self.avatar.imageUrl
     }
+    Rectangle {
+        anchors.fill: parent
+        border.width: 3
+        border.color: "#d3631f"
+        visible: self.activeFocus
+        color: "transparent"
+    }
 }
