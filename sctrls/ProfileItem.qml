@@ -23,7 +23,7 @@ FocusScope {
         font.pixelSize: 30
         color: "white"
         font.family: fontNormal.name
-        font.bold: self.activeFocus
+        font.weight: Font.ExtraBold
         text: self.isEmpty ? "" : profile.name
     }
 }

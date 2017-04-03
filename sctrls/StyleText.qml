@@ -1,7 +1,9 @@
 import QtQuick 2.5
 
 Row {
-    property var model: undefined
+    property var model
+    property int pixelSize: 30
+    property var fontFamily
 
     id: self
     spacing: 11
@@ -14,7 +16,7 @@ Row {
                 var createString = "";
                 if (modelData.type == "text") {
                     createString = 'import QtQuick 2.5; Text {text: \'' 
-                    + modelData.value.replace("'", "\\'").replace('\"', '\\"') + '\'; font.pixelSize: 30; color: "' + (modelData.color || "white") + '";}';
+                    + modelData.value.replace("'", "\\'").replace('\"', '\\"') + '\'; font.pixelSize: ' + self.pixelSize + '; font.family: "' + self.fontFamily + '"; color: "' + (modelData.color || "white") + '";}';
                 } else {
                     createString = 'import QtQuick 2.5; Image {source: "../images/' 
                     + modelData.value + '.png";}';

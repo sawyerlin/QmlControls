@@ -1,4 +1,5 @@
 import QtQuick 2.5
+import "."
 
 FocusScope {
     property var title
@@ -85,7 +86,7 @@ FocusScope {
                     elide: !!desc ? Text.ElideRight : Text.ElideNone
                     wrapMode: !!desc ? Text.NoWrap : Text.Wrap
                     font.family: fontNormal.name
-                    font.bold: true
+                    font.weight: Font.ExtraBold
                     color: "#FFFFFF"
                 }
                 Text {
@@ -101,17 +102,15 @@ FocusScope {
                     font.family: fontNormal.name
                     color: "#CCCCCC"
                 }
-                Text {
+                StyleText {
                     visible: !!descRight
-                    text: descRight || "desc undefined"
-                    font.pixelSize: bannerDescSize
+                    model: descRight
+                    fontFamily: fontNormal.name
+                    pixelSize: bannerDescSize
                     anchors.bottom: parent.bottom
                     anchors.right: parent.right
                     anchors.bottomMargin: bannerDescBottomMargin
                     anchors.rightMargin: bannerDescLeftMargin
-                    elide: Text.ElideRight
-                    font.family: fontNormal.name
-                    color: "#CCCCCC"
                 }
                 anchors.bottom: progressBar.top
             }
