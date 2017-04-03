@@ -33,6 +33,7 @@ FocusScope {
         id: emptyText
         anchors.centerIn: parent
         font.pixelSize: 50
+        font.family: fontNormal.name
         color: "white"
         text: name
     }

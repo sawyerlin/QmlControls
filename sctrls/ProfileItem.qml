@@ -22,7 +22,8 @@ FocusScope {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 30
         color: "white"
-        font.family: self.activeFocus ? fontBold.name : fontNormal.name
+        font.family: fontNormal.name
+        font.bold: self.activeFocus
         text: self.isEmpty ? "" : profile.name
     }
 }

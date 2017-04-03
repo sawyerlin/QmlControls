@@ -83,7 +83,8 @@ FocusScope {
                     anchors.rightMargin: bannerTitleLeftMargin
                     elide: !!desc ? Text.ElideRight : Text.ElideNone
                     wrapMode: !!desc ? Text.NoWrap : Text.Wrap
-                    font.family: fontBold.name
+                    font.family: fontNormal.name
+                    font.bold: true
                     color: "#FFFFFF"
                 }
                 Text {
