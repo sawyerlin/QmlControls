@@ -72,6 +72,7 @@ GridView {
             anchors.rightMargin: (index % columnSize + 1) * (cellWidth - itemWidth) - index % columnSize * widthSpacing 
             anchors.top: parent.top
             desc: datas.desc
+            descRight: datas.descRight
             isParentFocused: false
             widthFocus: datas.widthFocus
             heightFocus: datas.heightFocus 

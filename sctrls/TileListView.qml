@@ -51,6 +51,7 @@ FocusScope {
             autoPlay: !!datas.autoPlay
             title: datas.title
             desc: datas.desc
+            descRight: datas.descRight
             highRightIcon: datas.highRightIcon
             highLeftIcon: datas.highLeftIcon
             widthFocus: datas.widthFocus

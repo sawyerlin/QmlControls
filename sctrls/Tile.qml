@@ -3,6 +3,7 @@ import QtQuick 2.5
 FocusScope {
     property var title
     property var desc
+    property var descRight
     property var highLeftIcon
     property var highRightIcon
     property var background
@@ -96,6 +97,18 @@ FocusScope {
                     anchors.bottomMargin: bannerDescBottomMargin
                     anchors.leftMargin: bannerDescLeftMargin
                     anchors.right: parent.right
+                    elide: Text.ElideRight
+                    font.family: fontNormal.name
+                    color: "#CCCCCC"
+                }
+                Text {
+                    visible: !!descRight
+                    text: descRight || "desc undefined"
+                    font.pixelSize: bannerDescSize
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                    anchors.bottomMargin: bannerDescBottomMargin
+                    anchors.rightMargin: bannerDescLeftMargin
                     elide: Text.ElideRight
                     font.family: fontNormal.name
                     color: "#CCCCCC"
