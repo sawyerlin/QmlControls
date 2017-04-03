@@ -52,6 +52,7 @@ FocusScope {
                     anchors.left: parent.left
                     anchors.leftMargin: 96
                     anchors.verticalCenter: parent.verticalCenter
+                    color: parent.activeFocus ? "#000000" : "#ffffff"
                     onWidthChanged: {
                         self.maxWidth = Math.max(width, self.maxWidth);
                         return self.maxWidth;

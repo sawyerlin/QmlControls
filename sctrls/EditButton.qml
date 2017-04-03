@@ -9,4 +9,6 @@ Rectangle {
         anchors.centerIn: parent
         source: "../images/Edit.png"
     }
+    border.width: 3
+    border.color: "#d3631f"
 }

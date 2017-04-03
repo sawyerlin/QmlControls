@@ -61,6 +61,7 @@ FocusScope {
             PlayButton {
                 id: playButton
                 visible: autoPlay
+                showBorder: false
                 anchors.centerIn: parent
                 width: 50
                 height: 50

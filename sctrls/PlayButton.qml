@@ -4,6 +4,7 @@ AnimateFocusScope {
     property var scale: 160 / 112
     property var triangleWidth: 49
     property var triangleHeight: 57
+    property bool showBorder: true
 
     id: self
     width: 112
@@ -25,10 +26,10 @@ AnimateFocusScope {
         }
     }
     Rectangle {
+        visible: self.showBorder && self.activeFocus
         anchors.fill: parent
         border.width: 3
         border.color: "#d3631f"
-        visible: self.activeFocus
         color: "transparent"
     }
 }
