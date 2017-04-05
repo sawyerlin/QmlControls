@@ -49,9 +49,7 @@ FocusScope {
                 color: activeFocus ? "#999999" : "#2b2b2b"
                 StyleText {
                     id: text
-                    anchors.left: parent.left
-                    anchors.leftMargin: 96
-                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.centerIn: parent
                     color: parent.activeFocus ? "#000000" : "#ffffff"
                     onWidthChanged: {
                         self.maxWidth = Math.max(width, self.maxWidth);
