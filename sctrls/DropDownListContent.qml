@@ -36,13 +36,13 @@ FocusScope {
         model: self.model
         currentIndex: self.currentIndex
         highlightMoveDuration: 300
-        delegate: AnimateFocusScope {
+        delegate: AnimateFocusScopeLoader {
             height: 83
             xScale: 382 / 299
             yScale: 99 / 83
             anchors.left: parent.left
             anchors.right: parent.right
-            Rectangle {
+            sourceComponent: Rectangle {
                 width: self.maxWidth + 96 * 2
                 height: 96
                 focus: parent.activeFocus
@@ -83,13 +83,6 @@ FocusScope {
                         }
                     }
                     visibleHeight: 5
-                }
-                Rectangle {
-                    anchors.fill: parent
-                    border.width: 3
-                    border.color: "#d3631f"
-                    visible: parent.activeFocus
-                    color: "transparent"
                 }
             }
             Keys.onPressed: {

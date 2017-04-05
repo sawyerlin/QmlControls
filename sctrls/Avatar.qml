@@ -1,6 +1,6 @@
 import QtQuick 2.5
 
-AnimateFocusScope {
+AnimateFocusScopeLoader {
     property var avatar: undefined
     property var isEmpty: false
     property var sideSize: self.avatar.sideSize
@@ -12,21 +12,13 @@ AnimateFocusScope {
     height: sideSize
     xScale: self.focusScale
     yScale: self.focusScale
-    Rectangle {
+    sourceComponent: Rectangle {
         anchors.fill: parent
-        visible: self.isEmpty
-        color: "#3F3F3F"
-    }
-    Image {
-        anchors.fill: self.isEmpty ? null : parent
-        anchors.centerIn: parent
-        source: self.isEmpty ? "../images/Add.png" : self.avatar.imageUrl
-    }
-    Rectangle {
-        anchors.fill: parent
-        border.width: 3
-        border.color: "#d3631f"
-        visible: self.activeFocus
-        color: "transparent"
+        color: self.isEmpty ? "#3F3F3F" : "transparent"
+        Image {
+            anchors.fill: self.isEmpty ? null : parent
+            anchors.centerIn: parent
+            source: self.isEmpty ? "../images/Add.png" : self.avatar.imageUrl
+        }
     }
 }

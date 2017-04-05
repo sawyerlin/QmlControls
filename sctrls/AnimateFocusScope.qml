@@ -1,8 +1,8 @@
 import QtQuick 2.5
 
 FocusScope {
-    property var xOrigin: undefined
-    property var yOrigin: undefined
+    property var xOrigin
+    property var yOrigin
     property var xScale: 1
     property var yScale: 1
     property var duration: 100

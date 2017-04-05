@@ -27,13 +27,12 @@ FocusScope {
     id: self
     focus: true
     z: activeFocus ? 1 : 0
-    AnimateFocusScope {
+    AnimateFocusScopeLoader {
         focus: true
         xScale: widthFocus / width
         yScale: heightFocus / height
-        onXStopped: rectCover.visible = isParentFocused || self.activeFocus
         anchors.fill: parent
-        Rectangle {
+        sourceComponent: Rectangle {
             anchors.fill: parent
             color: hasBackgroundImage ? "transparent" : "blue"
             Image {
@@ -123,20 +122,13 @@ FocusScope {
                 value: progressValue
                 visibleHeight: 5
             }
-        }
-        Rectangle {
-            id: rectCover
-            visible: !isParentFocused && !self.activeFocus
-            color: Qt.rgba(0, 0, 0, 0.5)
-            width: parent.width
-            height: parent.height
-        }
-        Rectangle {
-            visible: self.activeFocus
-            border.width: 3
-            border.color: "#d3631f"
-            anchors.fill: parent
-            color: "transparent"
+            Rectangle {
+                id: rectCover
+                visible: !isParentFocused && !self.activeFocus
+                color: Qt.rgba(0, 0, 0, 0.5)
+                width: parent.width
+                height: parent.height
+            }
         }
     }
 }
