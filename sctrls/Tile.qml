@@ -70,7 +70,7 @@ FocusScope {
             Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: (!!desc || !!descRight) ? self.bannerHeight : titleText.height + 2 * bannerTitleTopMargin
+                height: (!!desc || descRight[0].value !== "") ? self.bannerHeight : titleText.height + 2 * bannerTitleTopMargin
                 visible: showSubBand
                 color: Qt.rgba(0, 0, 0, 0.6)
                 Text {
@@ -83,15 +83,15 @@ FocusScope {
                     anchors.topMargin: bannerTitleTopMargin
                     anchors.leftMargin: bannerTitleLeftMargin
                     anchors.rightMargin: bannerTitleLeftMargin
-                    elide: (!!desc || !!descRight) ? Text.ElideRight : Text.ElideNone
-                    wrapMode: (!!desc || !!descRight) ? Text.NoWrap : Text.Wrap
+                    elide: Text.ElideRight
+                    wrapMode: Text.NoWrap 
                     font.family: fontNormal.name
                     font.weight: Font.ExtraBold
                     color: "#FFFFFF"
                 }
                 Text {
                     visible: !!desc
-                    text: desc || "desc undefined"
+                    text: desc
                     font.pixelSize: bannerDescSize
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
@@ -103,7 +103,7 @@ FocusScope {
                     color: "#CCCCCC"
                 }
                 StyleText {
-                    visible: !!descRight
+                    visible: descRight[0].value !== ""
                     model: descRight
                     fontFamily: fontNormal.name
                     pixelSize: bannerDescSize
