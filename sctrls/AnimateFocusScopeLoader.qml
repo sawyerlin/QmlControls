@@ -61,7 +61,7 @@ FocusScope {
     }
     Rectangle {
         id: border
-        visible: false
+        visible: loader.activeFocus && self.type === "border" && self.showBorder
         width: (parent.width) * self.xScale
         height: (parent.height) * self.yScale
         border.width: 3
@@ -72,7 +72,7 @@ FocusScope {
     }
     Rectangle {
         id: underline
-        visible: false
+        visible: loader.activeFocus && self.type === "underline"
         anchors.top: loader.bottom
         anchors.topMargin: 5
         anchors.left: loader.left

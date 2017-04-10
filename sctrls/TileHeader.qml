@@ -29,7 +29,6 @@ FocusScope {
         Rectangle {
             visible: self.activeFocus
             anchors.top: text.bottom
-            anchors.topMargin: 5
             anchors.left: text.left
             anchors.right: text.right
             height: 3

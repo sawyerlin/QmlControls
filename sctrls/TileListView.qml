@@ -19,7 +19,7 @@ FocusScope {
     TileHeader {
         id: header
         visible: headerShown && (self.model.count > 0 || self.model.emptyMessage != undefined)
-        focus: self.focusPlace == "title" && !self.model.noTitleFocus
+        focus: self.focusPlace === "title" && !self.model.noTitleFocus
         title: self.model.title
         color: self.model.color || "white"
         Keys.onReturnPressed: self.moreClicked(self.model.originDatas)
@@ -28,7 +28,7 @@ FocusScope {
     ListView {
         id: list
         cacheBuffer: self.cacheBuffer
-        focus: (self.focusPlace == "list" ? true : false) || !!self.model.noTitleFocus
+        focus: (self.focusPlace === "list" ? true : false) || !!self.model.noTitleFocus
         model: self.model
         anchors.left: parent.left
         anchors.right: parent.right
