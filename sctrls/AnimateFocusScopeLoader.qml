@@ -18,6 +18,21 @@ FocusScope {
         id: loader
         focus: true
         anchors.fill: parent
+        onLoaded: {
+            item.focus = true;
+            if (item.activeFocus) {
+                switch(self.type) {
+                    case "border":
+                    if (self.showBorder) {
+                        border.visible = true;
+                    }
+                    break;
+                    case "underline":
+                    underline.visible = true;
+                    break;
+                }
+            }
+        }
         transform: Scale {
             origin.x: self.xOrigin !== undefined ? self.xOrigin : self.width / 2
             origin.y: self.yOrigin !== undefined ? self.yOrigin : self.height / 2
@@ -61,7 +76,7 @@ FocusScope {
     }
     Rectangle {
         id: border
-        visible: loader.activeFocus && self.type === "border" && self.showBorder
+        visible: false
         width: (parent.width) * self.xScale
         height: (parent.height) * self.yScale
         border.width: 3
@@ -72,7 +87,7 @@ FocusScope {
     }
     Rectangle {
         id: underline
-        visible: loader.activeFocus && self.type === "underline"
+        visible: false
         anchors.top: loader.bottom
         anchors.topMargin: 5
         anchors.left: loader.left
