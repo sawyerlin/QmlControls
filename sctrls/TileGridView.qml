@@ -14,6 +14,7 @@ GridView {
     
     id: self 
     anchors.fill: parent
+    cacheBuffer: 1000000
     cellWidth: self.width / self.columnSize
     cellHeight: self.itemHeight + 20
     anchors.bottomMargin: 50
