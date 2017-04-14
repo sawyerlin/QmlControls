@@ -42,7 +42,39 @@ FocusScope {
             emptyText.visible = false;
         }
     }
+    Component {
+        id: loader
+        FocusScope {
+            property var closeCallback
+            signal focusReleased()
+            anchors.fill: parent
+            AnimatedImage {
+                anchors.centerIn: parent
+                source: "../images/loader.gif"
+            }
+            onFocusReleased: {
+                var parent = self;
+                restoreFocus(parent);
+            }
+            function restoreFocus(parent) {
+                if (!parent.activeFocus) {
+                    restoreFocus(parent.parent);
+                    parent.focus = true;
+                }
+            }
+        }
+    }
     function close() {
         parent.pop();
+    }
+    function showLoader() {
+        if (dialog) {
+            dialog.show(loader);
+        }
+    }
+    function hideLoader() {
+        if (dialog) {
+            dialog.hide();
+        }
     }
 }
