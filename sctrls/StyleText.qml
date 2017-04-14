@@ -17,6 +17,7 @@ Row {
             Component.onCompleted: {
                 var createString = "";
                 if (modelData.type == "text") {
+                    console.log(self.pixelSize);
                     createString = 'import QtQuick 2.5; Text {text: \'' 
                     + modelData.value.replace("'", "\\'").replace('\"', '\\"') + '\'; font.pixelSize: ' + self.pixelSize + '; font.family: "' + self.fontFamily + '"; color: ' + (modelData.color ? ('"' + modelData.color + '"') : 'self.color') + ';}';
                 } else {

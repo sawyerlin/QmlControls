@@ -92,7 +92,7 @@ FocusScope {
                 Text {
                     visible: !!desc
                     text: desc
-                    font.pointSize: bannerDescSize
+                    font.pixelSize: bannerDescSize
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.bottomMargin: bannerDescBottomMargin
