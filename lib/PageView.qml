@@ -48,9 +48,11 @@ FocusScope {
             property var closeCallback
             signal focusReleased()
             anchors.fill: parent
-            AnimatedImage {
+            Text {
                 anchors.centerIn: parent
-                source: "../images/loader.gif"
+                color: "white"
+                font.pixelSize: 26
+                text: "Chargement..."
             }
             onFocusReleased: {
                 var parent = self;
