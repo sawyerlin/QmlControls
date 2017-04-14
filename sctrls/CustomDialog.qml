@@ -1,7 +1,7 @@
 import QtQuick 2.5
 
 FocusScope {
-    property var currentItem: undefined
+    property var currentItem
     id: self
     z: -1
     anchors.fill: parent
@@ -22,5 +22,13 @@ FocusScope {
                 }
             }
         });
+    }
+    function hide() {
+        self.z = -1;
+        self.focus = false;
+        if (self.currentItem) {
+            self.currentItem.focusReleased();
+            self.currentItem.destroy();
+        }
     }
 }

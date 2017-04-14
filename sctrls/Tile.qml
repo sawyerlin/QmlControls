@@ -16,7 +16,7 @@ FocusScope {
     property int bannerTitleSize: 30
     property int bannerTitleTopMargin: 18
     property int bannerTitleLeftMargin: 21
-    property int bannerDescSize: 20
+    property int bannerDescSize: 16
     property int bannerDescBottomMargin: 15
     property int bannerDescLeftMargin: 21
     property bool showSubBand: true
@@ -92,7 +92,7 @@ FocusScope {
                 Text {
                     visible: !!desc
                     text: desc
-                    font.pixelSize: bannerDescSize
+                    font.pointSize: bannerDescSize
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.bottomMargin: bannerDescBottomMargin
