@@ -1,10 +1,10 @@
 import QtQuick 2.5
 
 FocusScope {
-    property var model: undefined 
+    property var model
     property var itemSpacing: 100
 
-    signal pressed(var datas)
+    signal pressed(var datas, bool isFirst)
 
     id: self
     ListView {
@@ -23,7 +23,7 @@ FocusScope {
             Keys.onReturnPressed: {
                 // comment if to fix the ticket: FV-98
                 // if (!isDefault) {
-                pressed(datas);
+                pressed(datas, false);
                 if (self.model.defaultIndex > -1) {
                     self.model.setProperty(self.model.defaultIndex, "isDefault", false);
                 }
@@ -42,7 +42,7 @@ FocusScope {
                 }
             }
             listView.currentIndex = self.model.defaultIndex;
-            pressed(currentModel.datas);
+            pressed(currentModel.datas, true);
         }
     }
     function reset() {
