@@ -24,28 +24,15 @@ GridView {
     highlightRangeMode: ListView.ApplyRange
     highlightMoveDuration: 300
     highlight: 
-    //Rectangle {
-        //x: currentItem.x + currentItem.tile.x - (currentItem.tile.widthFocus - currentItem.tile.width) / 2
-        //y: currentItem.y - (currentItem.tile.heightFocus - currentItem.tile.height) / 2
-        //z: currentItem.z + 1
-        //Behavior on x { NumberAnimation { duration: 300 } }
-        //Behavior on y { NumberAnimation { duration: 300 } }
-        //visible: self.activeFocus && !self.model.isLoading
-        //width: currentItem.tile.widthFocus
-        //height: currentItem.tile.heightFocus
-        //border.width: 3
-        //border.color: "#d3631f"
-        //color: "transparent"
-    //}
     Rectangle {
-        x: currentItem.x + currentItem.tile.x
-        y: currentItem.y
+        x: currentItem.x + currentItem.tile.x - (currentItem.tile.widthFocus - currentItem.tile.width) / 2
+        y: currentItem.y - (currentItem.tile.heightFocus - currentItem.tile.height) / 2
         z: currentItem.z + 1
         //Behavior on x { NumberAnimation { duration: 300 } }
         //Behavior on y { NumberAnimation { duration: 300 } }
         visible: self.activeFocus && !self.model.isLoading
-        width: currentItem.tile.width
-        height: currentItem.tile.height
+        width: currentItem.tile.widthFocus
+        height: currentItem.tile.heightFocus
         border.width: 3
         border.color: "#d3631f"
         color: "transparent"
@@ -78,9 +65,9 @@ GridView {
         width: self.cellWidth
         height: self.cellHeight
         z: activeFocus ? 1 : 0
-        TileNew {
+        Tile {
             id: tileNew
-            //showBorder: false
+            showBorder: false
             width: {
                 if (datas) {
                     if (index == 0) {

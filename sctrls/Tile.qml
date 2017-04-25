@@ -34,45 +34,45 @@ FocusScope {
         yScale: heightFocus / height
         anchors.fill: parent
         showBorder: self.showBorder
-        sourceComponent: Rectangle {
-            anchors.fill: parent
-            color: hasBackgroundImage ? "transparent" : "blue"
-            Image {
-                source: background || backgroundDefaultImage
+        sourceComponent: Item {
+            ImageFade {
+                source: self.background || self.backgroundDefaultImage
                 anchors.fill: parent
-                fillMode: hasBackgroundImage ? Image.Stretch : Image.PreserveAspectFit
-                anchors.centerIn: parent
+                fillMode: self.hasBackgroundImage ? Image.Stretch : Image.PreserveAspectFit
                 Image {
+                    visible: self.highRightIcon !== undefined
                     anchors.top: parent.top
                     anchors.right: parent.right
                     width: 70
                     height: 70
-                    visible: self.highRightIcon != undefined
                     source: self.highRightIcon ? "../images/" + self.highRightIcon : ""
                 }
                 Image {
+                    visible: self.highLeftIcon !== undefined
                     anchors.top: parent.top
                     anchors.topMargin: 20
                     anchors.left: parent.left
                     anchors.leftMargin: 20
-                    visible: self.highLeftIcon != undefined
                     source: self.highLeftIcon ? "../images/" + self.highLeftIcon : ""
                 }
             }
-            PlayButton {
-                id: playButton
-                visible: autoPlay
-                showBorder: false
+            Loader {
+                active: self.autoPlay
                 anchors.centerIn: parent
                 width: 50
                 height: 50
-                triangleWidth: 22
-                triangleHeight: 28
+                sourceComponent: PlayButton {
+                    visible: autoPlay
+                    showBorder: false
+                    anchors.fill: parent
+                    triangleWidth: 22
+                    triangleHeight: 28
+                }
             }
             Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: self.bannerHeight //(!!desc || descRight[0].value !== "") ? self.bannerHeight : titleText.height + 2 * bannerTitleTopMargin
+                height: self.bannerHeight 
                 visible: showSubBand
                 color: Qt.rgba(0, 0, 0, 0.6)
                 Text {
@@ -104,15 +104,17 @@ FocusScope {
                     font.family: fontNormal.name
                     color: "#CCCCCC"
                 }
-                StyleText {
-                    visible: descRight[0].value !== ""
-                    model: descRight
-                    fontFamily: fontNormal.name
-                    pixelSize: bannerDescSize
+                Loader {
+                    active: descRight[0].value !== ""
                     anchors.bottom: parent.bottom
                     anchors.right: parent.right
                     anchors.bottomMargin: bannerDescBottomMargin
                     anchors.rightMargin: bannerDescLeftMargin
+                    sourceComponent: StyleText {
+                        model: descRight
+                        fontFamily: fontNormal.name
+                        pixelSize: bannerDescSize
+                    }
                 }
                 anchors.bottom: progressBar.top
             }
