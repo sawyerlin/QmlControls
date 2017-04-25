@@ -23,6 +23,7 @@ FocusScope {
     property bool autoPlay: false
     property bool isParentFocused: false
     property bool hasBackgroundImage: background != undefined && background != backgroundDefaultImage
+    property bool showBorder: true
 
     id: self
     focus: true
@@ -32,6 +33,7 @@ FocusScope {
         xScale: widthFocus / width
         yScale: heightFocus / height
         anchors.fill: parent
+        showBorder: self.showBorder
         sourceComponent: Rectangle {
             anchors.fill: parent
             color: hasBackgroundImage ? "transparent" : "blue"

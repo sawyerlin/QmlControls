@@ -40,8 +40,22 @@ FocusScope {
         displayMarginEnd: 50
         displayMarginBeginning: self.displayMarginBeginning
         anchors.rightMargin: self.rightMargin
+        highlight: 
+        Rectangle {
+            x: list.currentItem.x - (list.currentItem.widthFocus - list.currentItem.width) / 2
+            y: list.currentItem.y - (list.currentItem.heightFocus - list.currentItem.height) / 2
+            z: list.currentItem.z + 1
+            visible: list.activeFocus
+            width: list.currentItem.widthFocus;
+            height: list.currentItem.heightFocus 
+            border.width: 3
+            border.color: "#d3631f"
+            color: "transparent"
+        }
+        highlightFollowsCurrentItem: false
         delegate: Tile {
             width: datas.width
+            showBorder: false
             height: {
                 if (index == 0) {
                     self.itemHeight = datas.height;

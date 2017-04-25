@@ -15,6 +15,7 @@ PlayButton 1.0 PlayButton.qml
 ProfileItem 1.0 ProfileItem.qml
 StyleText 1.0 StyleText.qml
 Tile 1.0 Tile.qml
+TileNew 1.0 TileNew.qml
 TileHeader 1.0 TileHeader.qml
 TileListView 1.0 TileListView.qml
 TileGridView 1.0 TileGridView.qml

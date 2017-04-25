@@ -14,7 +14,7 @@ GridView {
     
     id: self 
     anchors.fill: parent
-    cacheBuffer: 1000000
+    cacheBuffer: 100000
     cellWidth: self.width / self.columnSize
     cellHeight: self.itemHeight + 20
     anchors.bottomMargin: 50
@@ -23,29 +23,64 @@ GridView {
     preferredHighlightEnd: self.height - self.itemHeight
     highlightRangeMode: ListView.ApplyRange
     highlightMoveDuration: 300
+    highlight: 
+    //Rectangle {
+        //x: currentItem.x + currentItem.tile.x - (currentItem.tile.widthFocus - currentItem.tile.width) / 2
+        //y: currentItem.y - (currentItem.tile.heightFocus - currentItem.tile.height) / 2
+        //z: currentItem.z + 1
+        //Behavior on x { NumberAnimation { duration: 300 } }
+        //Behavior on y { NumberAnimation { duration: 300 } }
+        //visible: self.activeFocus && !self.model.isLoading
+        //width: currentItem.tile.widthFocus
+        //height: currentItem.tile.heightFocus
+        //border.width: 3
+        //border.color: "#d3631f"
+        //color: "transparent"
+    //}
+    Rectangle {
+        x: currentItem.x + currentItem.tile.x
+        y: currentItem.y
+        z: currentItem.z + 1
+        //Behavior on x { NumberAnimation { duration: 300 } }
+        //Behavior on y { NumberAnimation { duration: 300 } }
+        visible: self.activeFocus && !self.model.isLoading
+        width: currentItem.tile.width
+        height: currentItem.tile.height
+        border.width: 3
+        border.color: "#d3631f"
+        color: "transparent"
+    }
+    highlightFollowsCurrentItem: false
     Keys.onPressed: {
-        if (event.key == Qt.Key_Up || event.key == Qt.Key_Left) {
-            if (currentIndex / 4 < 2) {
-                self.preferredHighlightBegin = 0;
-            } else {
-                self.preferredHighlightBegin = -127;
-            }
-        } else if (event.key == Qt.Key_Down || event.key == Qt.Key_Right) {
-            self.preferredHighlightBegin = -125;
-            if (event.key == Qt.Key_Down) {
-                if (Math.floor(currentIndex / self.columnSize) + 1 == Math.floor(self.model.count / self.columnSize)
-                && self.model.count % columnSize != 0
-                && currentIndex + self.columnSize > self.model.count - 1) {
-                    currentIndex = self.model.count - 1;
+        if (!self.model.isLoading) {
+            if (event.key == Qt.Key_Up || event.key == Qt.Key_Left) {
+                if (currentIndex / 4 < 2) {
+                    self.preferredHighlightBegin = 0;
+                } else {
+                    self.preferredHighlightBegin = -127;
+                }
+            } else if (event.key == Qt.Key_Down || event.key == Qt.Key_Right) {
+                self.preferredHighlightBegin = -125;
+                if (event.key == Qt.Key_Down) {
+                    if (Math.floor(currentIndex / self.columnSize) + 1 == Math.floor(self.model.count / self.columnSize)
+                    && self.model.count % columnSize != 0
+                    && currentIndex + self.columnSize > self.model.count - 1) {
+                        currentIndex = self.model.count - 1;
+                    }
                 }
             }
+        } else {
+            event.accepted = true;
         }
     }
     delegate: FocusScope {
+        property alias tile: tileNew
         width: self.cellWidth
         height: self.cellHeight
         z: activeFocus ? 1 : 0
-        Tile {
+        TileNew {
+            id: tileNew
+            //showBorder: false
             width: {
                 if (datas) {
                     if (index == 0) {
