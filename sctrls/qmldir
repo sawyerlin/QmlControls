@@ -9,6 +9,7 @@ DropDownList 1.0 DropDownList.qml
 DropDownListContent 1.0 DropDownListContent.qml
 EditButton 1.0 EditButton.qml
 ImageButton 1.0 ImageButton.qml
+TextImageButton 1.0 TextImageButton.qml
 ImageFade 1.0 ImageFade.qml
 NavigationContainer 1.0 NavigationContainer.qml
 PlayButton 1.0 PlayButton.qml

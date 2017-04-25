@@ -7,6 +7,7 @@ AnimateFocusScopeLoader {
     property var sideFocusSize: 123
     property var focusScale: sideFocusSize / sideSize
     property var mode: ""
+    property int glowRadius: 10
     property var color
 
     id: self
@@ -16,7 +17,7 @@ AnimateFocusScopeLoader {
     yScale: focusScale
     sourceComponent: RectangularGlow {
         anchors.fill: parent
-        glowRadius: 10
+        glowRadius: self.glowRadius
         color: Qt.rgba(0, 0, 0, 0.2)
         cornerRadius: 0
         Rectangle {
