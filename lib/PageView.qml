@@ -8,6 +8,7 @@ FocusScope {
     property bool isFocusable: true
     property bool isReloadable: false
     property bool existedEnabled: false
+    property bool isLoading: false
 
     id: self
     anchors.fill: parent
@@ -15,7 +16,7 @@ FocusScope {
     Keys.onPressed: {
         if (event.key == Qt.Key_Back || event.key == Qt.Key_Escape) {
             event.accepted = true;
-            if (self.escapeEnabled) {
+            if (self.escapeEnabled && !self.isLoading) {
                 close();
             }
         }
@@ -71,12 +72,14 @@ FocusScope {
     }
     function showLoader() {
         if (dialog) {
+            self.isLoading = true;
             dialog.show(loader);
         }
     }
     function hideLoader() {
         if (dialog) {
             dialog.hide();
+            self.isLoading = false;
         }
     }
 }
