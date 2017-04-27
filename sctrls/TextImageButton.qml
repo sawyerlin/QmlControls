@@ -6,7 +6,7 @@ ImageButton {
 
     id: self
     glowRadius: 0
-    width: 200
+    width: 199
     height: 80
     Text {
         anchors.top: parent.bottom
