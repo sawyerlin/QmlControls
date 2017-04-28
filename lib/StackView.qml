@@ -2,8 +2,8 @@ import QtQuick 2.5
 
 FocusScope {
     id: self
-    property var initialItem: undefined
-    property var currentItem: undefined
+    property var initialItem
+    property var currentItem 
     property int depth: 0
     property bool busy: false
     property var pushJobs: []
