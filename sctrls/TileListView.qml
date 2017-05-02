@@ -4,7 +4,6 @@ FocusScope {
     property var model
     property var itemSpacing: 20
     property var itemHeight: 192
-    property var focusPlace: "title"
     property bool headerShown: true
     property int displayMarginBeginning: 0
     property int rightMargin: 0
@@ -16,19 +15,24 @@ FocusScope {
     id: self
     focus: true
     height: itemHeight + header.height
-    TileHeader {
+    FocusScope {
         id: header
-        visible: headerShown && (self.model.count > 0 || self.model.emptyMessage != undefined)
-        focus: self.focusPlace === "title" && !self.model.noTitleFocus
-        title: self.model.title
-        color: self.model.color || "white"
-        Keys.onReturnPressed: self.moreClicked(self.model.originDatas)
-        KeyNavigation.down: !self.model.noTitleFocus ? list : null
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: 93
+        Text {
+            anchors.verticalCenter: parent.verticalCenter
+            text: self.model.title
+            color: self.model.color || "white"
+            font.family: fontNormal.name
+            font.pixelSize: 40
+        }
     }
     ListView {
         id: list
         cacheBuffer: self.cacheBuffer
-        focus: (self.focusPlace === "list" ? true : false) || !!self.model.noTitleFocus
+        focus: true
         model: self.model
         anchors.left: parent.left
         anchors.right: parent.right
@@ -80,7 +84,13 @@ FocusScope {
             bannerDescBottomMargin: datas.bannerDescBottomMargin
             bannerDescLeftMargin: datas.bannerDescLeftMargin
             isParentFocused: self.activeFocus
-            Keys.onReturnPressed: self.clicked(index, datas.title, self.model.datas.autoPlay || false)
+            Keys.onReturnPressed: {
+                if (index === self.model.count - 1) {
+                    self.moreClicked(self.model.originDatas)
+                } else {
+                    self.clicked(index, datas.title, self.model.datas.autoPlay || false)
+                }
+            }
         }
     }
     Item {
