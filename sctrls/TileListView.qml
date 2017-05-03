@@ -82,7 +82,7 @@ FocusScope {
             bannerDescLeftMargin: datas.bannerDescLeftMargin
             isParentFocused: self.activeFocus
             Keys.onReturnPressed: {
-                if (index === self.model.count - 1) {
+                if (index === self.model.count - 1 && index > 0) {
                     self.moreClicked(self.model.originDatas)
                 } else {
                     self.clicked(index, datas.title, self.model.datas.autoPlay || false)
