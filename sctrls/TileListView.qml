@@ -4,6 +4,7 @@ FocusScope {
     property var model
     property var itemSpacing: 20
     property var itemHeight: 192
+    property var focusPlace: "title"
     property bool headerShown: true
     property int displayMarginBeginning: 0
     property int rightMargin: 0
@@ -15,24 +16,20 @@ FocusScope {
     id: self
     focus: true
     height: itemHeight + header.height
-    FocusScope {
+    TileHeader {
         id: header
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        height: 93
-        Text {
-            anchors.verticalCenter: parent.verticalCenter
-            text: self.model.title
-            color: self.model.color || "white"
-            font.family: fontNormal.name
-            font.pixelSize: 40
-        }
+        visible: headerShown && (self.model.count > 0 || self.model.emptyMessage != undefined)
+        focus: self.focusPlace === "title" && !self.model.noTitleFocus
+        noTitleFocus: !!self.model.noTitleFocus
+        title: self.model.title
+        color: self.model.color || "white"
+        Keys.onReturnPressed: self.moreClicked(self.model.originDatas)
+        KeyNavigation.down: !self.model.noTitleFocus ? list : null
     }
     ListView {
         id: list
         cacheBuffer: self.cacheBuffer
-        focus: true
+        focus: (self.focusPlace === "list" ? true : false) || !!self.model.noTitleFocus
         model: self.model
         anchors.left: parent.left
         anchors.right: parent.right
